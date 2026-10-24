@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MAT 271: Olasılık ve İstatistik Vize ve Final Çalışma Paketi</title>
+<style>
+:root{--bg:#f4f6f9;--fg:#14213d;--mut:#5b6577;--card:#fff;--bd:#d9dee7;--ac:#0f766e;--acbg:#e0f2ef;--ok:#15803d;--site:#15803d;--sitebg:#e3f4e8;--sunum:#6d3fb8;--sunumbg:#efe8fa;--gen:#5b6577;--genbg:#eef0f3;--ansbg:#eef7f6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10151d;--fg:#e6ebf3;--mut:#9aa6b8;--card:#18202c;--bd:#2a3546;--ac:#4fd1c0;--acbg:#12312e;--ok:#4ade80;--site:#4ade80;--sitebg:#12301f;--sunum:#c4a3ff;--sunumbg:#2a1f45;--gen:#9aa6b8;--genbg:#222c3a;--ansbg:#12312e}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{position:sticky;top:0;z-index:5;background:var(--card);box-shadow:0 1px 8px rgba(0,0,0,.08);padding:12px 20px;border-bottom:1px solid var(--bd);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+h1{font-size:1.05rem;margin:0;flex:1 1 220px}
+#pg{font-size:.85rem;color:var(--mut)}
+.sr{position:relative;flex:1 1 170px;max-width:300px}#q{font:inherit;font-size:.88rem;width:100%;padding:6px 10px;border-radius:8px;border:1px solid var(--bd);background:var(--card);color:var(--fg)}#q:hover,#q:focus{border-color:var(--ac)}#q::placeholder{color:var(--mut)}
+#sl{display:none;position:absolute;top:calc(100% + 4px);left:0;width:100%;min-width:250px;max-height:320px;overflow:auto;background:var(--card);border:1px solid var(--bd);border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.18)}#sl.on{display:block}
+#sl div{padding:7px 12px;font-size:.88rem;cursor:pointer;border-top:1px solid var(--bd)}#sl div:first-child{border-top:0}#sl div.h,#sl div:hover{background:var(--acbg)}#sl small{display:block;color:var(--mut)}#sl .e{color:var(--mut);cursor:default}
+.bar{width:140px;height:6px;background:var(--bd);border-radius:3px;overflow:hidden}.bar i{display:block;height:100%;background:var(--ac);width:0}
+.wrap{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px;padding:20px;max-width:1320px;margin:0 auto}
+main{min-width:0}aside{max-height:calc(100vh - 92px);overflow:auto;position:sticky;top:72px;align-self:start}
+h2{font-size:1.3rem;margin:4px 0 4px;line-height:1.3}.sub{color:var(--mut);font-size:.9rem;margin:0 0 10px}
+.item{margin-bottom:28px}.js .item{margin-bottom:0}
+.ctl{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+button,.lnk{font:inherit;padding:8px 14px;border-radius:8px;border:1px solid var(--bd);background:var(--card);color:var(--fg);cursor:pointer;text-decoration:none;transition:border-color .15s,background .15s}
+button:hover,.lnk:hover{border-color:var(--ac)}button.p{background:var(--ac);color:var(--bg);border-color:var(--ac)}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+a{color:var(--ac);word-break:break-word}
+details{background:var(--card);border:1px solid var(--bd);border-radius:10px;margin-bottom:8px;overflow:hidden}
+summary{padding:10px 12px;cursor:pointer;font-weight:600;font-size:.92rem}
+summary small{color:var(--mut);font-weight:400}
+.it{display:flex;gap:8px;align-items:center;width:100%;text-align:left;border:0;border-top:1px solid var(--bd);border-radius:0;padding:7px 12px;font-size:.88rem;background:none;color:var(--fg);text-decoration:none}.it:hover{background:var(--acbg)}
+.it.on{background:var(--acbg);color:var(--ac);font-weight:600}.it .c{width:16px;flex:none;color:var(--ok)}.it .d{margin-left:auto;color:var(--mut);font-size:.78rem;white-space:nowrap}
+.note{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:8px 24px 20px;font-family:Georgia,"Times New Roman",serif;line-height:1.65;max-width:78ch}
+.note h3{font-family:system-ui,sans-serif;font-size:1rem;margin:18px 0 4px}.note h4{font-family:system-ui,sans-serif;font-size:.92rem;margin:12px 0 2px;color:var(--mut)}
+.note code,.note .f1{font-family:ui-monospace,Consolas,monospace;font-size:.92em;background:var(--acbg);padding:1px 5px;border-radius:4px}
+.formlist{list-style:none;padding:0}.formlist li{margin:6px 0}.formlist .f1{display:block;padding:8px 12px;overflow-x:auto}
+.note table{border-collapse:collapse;display:block;overflow-x:auto}.note td,.note th{border:1px solid var(--bd);padding:4px 10px;text-align:left}
+.q{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px 18px;max-width:78ch}
+.qhead{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:4px}
+.qno{font-family:ui-monospace,Consolas,monospace;background:var(--acbg);color:var(--ac);border-radius:6px;padding:1px 8px;font-size:.85rem}
+.lv{font-size:.8rem;color:var(--mut)}
+.tag{font-size:.75rem;border-radius:999px;padding:2px 9px;border:1px solid;line-height:1.5;display:inline-block}
+.tag.site{color:var(--site);border-color:var(--site);background:var(--sitebg)}
+.tag.sunum{color:var(--sunum);border-color:var(--sunum);background:var(--sunumbg)}
+.tag.gen{color:var(--gen);border-color:var(--gen);background:var(--genbg)}
+.qtext{margin:8px 0}
+.srcline{font-size:.85rem;color:var(--mut);margin:6px 0}
+details.ans{background:var(--ansbg);margin:10px 0 0}
+.ansbody{padding:2px 14px 12px}
+.vlist{list-style:none;padding:0;margin:4px 0}.vlist li{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:8px 0;border-top:1px solid var(--bd);font-family:system-ui,sans-serif}
+.vt{min-width:0}.vmeta{display:block;font-size:.82rem;color:var(--mut)}
+.vlist button.play{flex:none;padding:5px 10px;font-size:.82rem}
+.vnote{font-family:system-ui,sans-serif}.vnote h3{margin-top:16px}
+.lang{font-size:.7rem;border-radius:4px;padding:0 6px;border:1px solid}
+.lang.tr{color:var(--site);border-color:var(--site)}.lang.en{color:#e0524a;border-color:#e0524a}
+.vid{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.18);margin:10px 0}.vid[hidden]{display:none}.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+@media(max-width:900px){.wrap{grid-template-columns:1fr;padding:12px;gap:16px}aside{position:static;max-height:none}.note{padding:6px 16px 16px}.q{padding:12px 14px}}
+@media print{header,aside,.ctl{display:none}.wrap{display:block}.item{display:block!important;page-break-inside:avoid}details>summary{display:none}}
+</style></head><body>
+<header><h1>MAT 271 — Olasılık ve İstatistik</h1><div class="sr"><input id="q" type="search" placeholder="Konu ara…  ( / )" autocomplete="off" aria-label="Konu ara"><div id="sl"></div></div><span id="pg"></span><div class="bar"><i id="bi"></i></div></header>
+<div class="wrap"><main id="m">
+<article class="item" id="ozet" data-k="0" data-g="Genel" data-kind="note">
+<h2>Ders özeti ve nasıl kullanılır</h2><p class="sub">Genel · 1/73</p>
+
+<div class="note">
+  <p><b>Ders:</b> MAT 271 Olasılık ve İstatistik. <b>Kapsam:</b> Hafta 1 – 4 sunumları (Fuzuli Akçay).</p>
+  <table>
+    <tr><th>Hafta</th><th>Konu</th></tr>
+    <tr><td>1</td><td>Olasılık Modelleri ve Aksiyomlar (Probability Models and Axioms)</td></tr><tr><td>2</td><td>Koşullandırma ve Bayes Kuralı (Conditioning and Bayes' Rule)</td></tr><tr><td>3</td><td>Bağımsızlık (Independence)</td></tr><tr><td>4</td><td>Sayma (Counting)</td></tr>
+  </table>
+  <h3>Soru etiketleri</h3>
+  <p class="legend">
+    <span class="tag site">Siteden</span> BUders sitesinde (buders.com) bulunan sınav provası sorusu. Soru metni sitedeki görselden aktarıldı, cevabı ben hesapladım, sitenin video çözümü linkli.<br>
+    <span class="tag sunum">Sunum</span> Senin ders sunumundaki problem (ya da sunumdaki örneğin türü). Cevabı ben hesapladım.<br>
+    <span class="tag gen">Üretildi</span> Sunum içeriğine dayanarak ben ürettim. Sitede ya da çıkmış sınavda olduğu iddiası yok.
+  </p>
+  <p>BUders sitesi soruları metin olarak vermiyor. Sitede video başlıkları ve 4 sınav provası var. Provaların soruları görsel olarak duruyor, bu yüzden yalnızca bu konularla eşleşen 7 tanesini aldım. Diğer tüm sorular üretilmiştir.</p>
+  <h3>Kullanım</h3>
+  <p>Soruyu kağıtta çöz, sonra cevabı aç. "Bitti, sonrakine geç" ilerlemeni bu cihazda saklar. Klavye: <code>/</code> arama, <code>←</code> <code>→</code> önceki ve sonraki. Sunumdaki formül görselleri metne çıkmadı, formül özetleri benim yazdığım standart gösterimlerdir.</p>
+  <div class="ctl">
+    <button type="button" id="openall">Tüm cevapları aç</button>
+    <button type="button" id="closeall">Tüm cevapları kapat</button>
+  </div>
+</div>
+</article>
+<article class="item" id="tahmin" data-k="1" data-g="Genel" data-kind="note">
+<h2>Vize ve final tahmini</h2><p class="sub">Genel · 2/73</p>
+
+<div class="note">
+  <p><b>Bu bir tahmin.</b> Hocanın sınav takvimini veya müfredatını görmedim. Sunumların sırasına ve genel ders akışına göre yazdım.</p>
+  <ul>
+    <li><b>Vize: yüksek ihtimal Hafta 1 – 4 hepsi.</b> Sunum numarası düşük olan, dersin ilk konuları genelde ilk vizeye girer. Dört haftanın vizeye tamamen girmesi makul.</li>
+    <li><b>En çok soru çıkma ihtimali olanlar: Hafta 2 (koşullu olasılık, toplam olasılık, Bayes) ve Hafta 4 (sayma ve olasılık hesabı).</b> Bu konular hesap sorusu olmaya çok uygun.</li>
+    <li><b>Hafta 3 (bağımsızlık)</b> tek başına az soru getirir ama Bayes ve sayma sorularının içine gömülür. "Bağımsız mı?" kontrolü ve ikili ve üçlü bağımsızlık farkı sık sorulan kavram sorusudur.</li>
+    <li><b>Hafta 1 (aksiyomlar)</b> vizede kısa soru ve ispat sorusu olarak çıkabilir. Dahil etme-çıkarma ve sürekli tekdüze (alan) sorularına bak.</li>
+    <li><b>Final:</b> bu konuların hepsi sonraki konuların (rastgele değişkenler, dağılımlar) temeli olduğu için final kapsamında da dolaylı olarak çıkar. Dönem sonunda yeni haftalar finalin ağırlığını taşır.</li>
+  </ul>
+  <p>Net bilgi için dersin duyurusuna ya da hocana bakmak gerekir.</p>
+</div>
+</article>
+<article class="item" id="h1-ozet" data-k="2" data-g="1. Hafta · Olasılık Modelleri ve Aksiyomlar" data-kind="note">
+<h2>Konular ve formül özeti</h2><p class="sub">1. Hafta · Olasılık Modelleri ve Aksiyomlar · 3/73</p>
+
+<div class="note">
+  <h3>Sunumdaki konular</h3>
+  <ul><li>Örneklem uzayı (sample space): toplu kapsamlı ve karşılıklı dışlayıcı olma şartı</li><li>Sonlu, sonsuz ve sürekli örneklem uzayı örnekleri (hayatta kalma yanılgısı notu)</li><li>Olay (event) ve üç olasılık aksiyomu: negatif olmama, normalizasyon, toplamsallık</li><li>Ayrık tekdüze yasa ve sürekli tekdüze yasa</li><li>Olasılık yasasının özellikleri</li><li>Problemler: dahi/çikolata (1.5), hileli zar, Leyla ile Mecnun buluşması (1.5)</li></ul>
+  <h3>Formül özeti</h3>
+  <ul class="formlist"><li><span class="f1">P(Ω) = 1, P(A) ≥ 0, ayrık A, B için P(A∪B) = P(A) + P(B)</span></li><li><span class="f1">P(Aᶜ) = 1 − P(A) &nbsp;|&nbsp; P(A∪B) = P(A) + P(B) − P(A∩B)</span></li><li><span class="f1">A ⊂ B ise P(A) ≤ P(B)</span></li><li><span class="f1">Ayrık tekdüze: P(A) = |A| / |Ω| &nbsp;|&nbsp; Sürekli tekdüze: P(A) = alan(A) / alan(Ω)</span></li></ul>
+</div>
+</article>
+<article class="item" id="q1A1" data-k="3" data-g="1. Hafta · Olasılık Modelleri ve Aksiyomlar" data-kind="q">
+<h2>1A1 · Adil bir zar bir kez atılıyor. Örneklem…</h2><p class="sub">1. Hafta · Olasılık Modelleri ve Aksiyomlar · 4/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">1A1</b><span class="lv">Örnek / temel sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Adil bir zar bir kez atılıyor. Örneklem uzayını yazın. "Çift sayı gelmesi" olayını ve olasılığını bulun.</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Ω = {1, 2, 3, 4, 5, 6}. A = {2, 4, 6}. Sonuçlar eşit olasılıklı, P(A) = 3/6 = <b>1/2</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q1A2" data-k="4" data-g="1. Hafta · Olasılık Modelleri ve Aksiyomlar" data-kind="q">
+<h2>1A2 · Adil bir para 3 kez atılıyor. Örneklem…</h2><p class="sub">1. Hafta · Olasılık Modelleri ve Aksiyomlar · 5/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">1A2</b><span class="lv">Örnek / temel sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Adil bir para 3 kez atılıyor. Örneklem uzayında kaç sonuç var? Tam 2 yazı gelme olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Her atışta 2 sonuç var: 2³ = 8 sonuç. Tam 2 yazı: {YYT, YTY, TYY} = 3 sonuç. P = <b>3/8</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q1A3" data-k="5" data-g="1. Hafta · Olasılık Modelleri ve Aksiyomlar" data-kind="q">
+<h2>1A3 · Bir sınıftaki öğrencilerin %60'ı dahi, %70'i…</h2><p class="sub">1. Hafta · Olasılık Modelleri ve Aksiyomlar · 6/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">1A3</b><span class="lv">Örnek / temel sorular</span><span class="tag sunum">Sunum: Sunum Hafta 1, Problem 1.5</span></div>
+  <p class="qtext">Bir sınıftaki öğrencilerin %60'ı dahi, %70'i çikolata sever, %40'ı hem dahi hem çikolata sever. Rastgele seçilen öğrencinin ne dahi ne de çikolata sever olma olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">P(D∪Ç) = 0,6 + 0,7 − 0,4 = 0,9. Hiçbiri: 1 − 0,9 = <b>0,1</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q1A4" data-k="6" data-g="1. Hafta · Olasılık Modelleri ve Aksiyomlar" data-kind="q">
+<h2>1A4 · Altı yüzlü bir zarda çift yüzlerin gelme…</h2><p class="sub">1. Hafta · Olasılık Modelleri ve Aksiyomlar · 7/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">1A4</b><span class="lv">Örnek / temel sorular</span><span class="tag sunum">Sunum: Sunum Hafta 1, hileli zar problemi</span></div>
+  <p class="qtext">Altı yüzlü bir zarda çift yüzlerin gelme olasılığı tek yüzlerin iki katıdır. Modeli kurun, 1, 2 veya 3 gelme olasılığını bulun.</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Tek yüz olasılığı p, çift yüz 2p. 3p + 3·2p = 9p = 1, p = 1/9. P(1) = 1/9, P(2) = 2/9, P(3) = 1/9. Toplam: 1/9 + 2/9 + 1/9 = <b>4/9</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q1A5" data-k="7" data-g="1. Hafta · Olasılık Modelleri ve Aksiyomlar" data-kind="q">
+<h2>1A5 · Bir listenin "örneklem uzayı" sayılması için…</h2><p class="sub">1. Hafta · Olasılık Modelleri ve Aksiyomlar · 8/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">1A5</b><span class="lv">Örnek / temel sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Bir listenin "örneklem uzayı" sayılması için hangi iki şartı sağlaması gerekir? Ω = {1, 2, 3, 4} olan zar deneyi neden hatalıdır?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">1) Toplu kapsamlı: tüm olası çıktıları içermeli. 2) Karşılıklı dışlayıcı: aynı anda yalnızca biri gerçekleşebilmeli. {1,2,3,4} listesi 5 ve 6'yı içermediği için toplu kapsamlı değildir.</div></details>
+</div>
+</article>
+<article class="item" id="q1A6" data-k="8" data-g="1. Hafta · Olasılık Modelleri ve Aksiyomlar" data-kind="q">
+<h2>1A6 · P(A) = 0,4, P(B) = 0,5, P(A∩B) = 0,2 ise…</h2><p class="sub">1. Hafta · Olasılık Modelleri ve Aksiyomlar · 9/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">1A6</b><span class="lv">Örnek / temel sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">P(A) = 0,4, P(B) = 0,5, P(A∩B) = 0,2 ise P(A∪B), yalnızca A olması ve ikisinin de olmaması olasılıklarını bulun.</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">P(A∪B) = 0,4 + 0,5 − 0,2 = <b>0,7</b>. Yalnızca A: P(A) − P(A∩B) = <b>0,2</b>. Hiçbiri: 1 − 0,7 = <b>0,3</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q1B1" data-k="9" data-g="1. Hafta · Olasılık Modelleri ve Aksiyomlar" data-kind="q">
+<h2>1B1 · Leyla ile Mecnun buluşuyor. Her ikisi de 0…</h2><p class="sub">1. Hafta · Olasılık Modelleri ve Aksiyomlar · 10/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">1B1</b><span class="lv">İleri düzey sorular</span><span class="tag sunum">Sunum: Sunum Hafta 1, Örnek 1.5</span></div>
+  <p class="qtext">Leyla ile Mecnun buluşuyor. Her ikisi de 0 ile 1 saat arasında, eşit olasılıkla gecikmeli geliyor. İlk gelen 15 dakika bekliyor. Buluşma olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Gecikmeler (x, y) birim karede tekdüze. Buluşma: |x − y| ≤ 1/4. Buluşmama bölgesi iki köşe üçgeni: her biri kenarı 3/4 olan dik üçgen, alanı (1/2)(3/4)². Toplam buluşmama = (3/4)² = 9/16. Buluşma olasılığı = 1 − 9/16 = <b>7/16</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q1B2" data-k="10" data-g="1. Hafta · Olasılık Modelleri ve Aksiyomlar" data-kind="q">
+<h2>1B2 · Önceki soruda bekleme süresi w saat (0 &lt; w &lt;…</h2><p class="sub">1. Hafta · Olasılık Modelleri ve Aksiyomlar · 11/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">1B2</b><span class="lv">İleri düzey sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Önceki soruda bekleme süresi w saat (0 < w < 1) olsaydı buluşma olasılığı ne olurdu? w = 1/2 için sonucu bulun.</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Aynı yöntem: P = 1 − (1 − w)². w = 1/2 için P = 1 − 1/4 = <b>3/4</b>. (w = 1/4 yazınca 7/16 çıkar, kontrol olur.)</div></details>
+</div>
+</article>
+<article class="item" id="q1B3" data-k="11" data-g="1. Hafta · Olasılık Modelleri ve Aksiyomlar" data-kind="q">
+<h2>1B3 · Yazı gelene kadar adil para atılıyor (sonsuz…</h2><p class="sub">1. Hafta · Olasılık Modelleri ve Aksiyomlar · 12/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">1B3</b><span class="lv">İleri düzey sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Yazı gelene kadar adil para atılıyor (sonsuz örneklem uzayı). İlk yazının n. atışta gelme olasılığı nedir? Yazının çift numaralı bir atışta ilk kez gelme olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">n−1 tura sonra yazı: P(n) = (1/2)ⁿ. Toplam kontrol: Σ(1/2)ⁿ = 1. Çift n = 2k için: Σ(1/4)ᵏ = (1/4) / (1 − 1/4) = <b>1/3</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q1B4" data-k="12" data-g="1. Hafta · Olasılık Modelleri ve Aksiyomlar" data-kind="q">
+<h2>1B4 · P(A) = P(B) = P(C) = 0,4, ikili kesişimlerin…</h2><p class="sub">1. Hafta · Olasılık Modelleri ve Aksiyomlar · 13/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">1B4</b><span class="lv">İleri düzey sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">P(A) = P(B) = P(C) = 0,4, ikili kesişimlerin her biri 0,1, üçlü kesişim 0,05 ise P(A∪B∪C) nedir? Hiçbirinin gerçekleşmeme olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Dahil etme-çıkarma: 3(0,4) − 3(0,1) + 0,05 = 1,2 − 0,3 + 0,05 = <b>0,95</b>. Hiçbiri: 1 − 0,95 = <b>0,05</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q1C1" data-k="13" data-g="1. Hafta · Olasılık Modelleri ve Aksiyomlar" data-kind="q">
+<h2>1C1 · Üç aksiyomdan yola çıkarak P(∅) = 0 ve P(Aᶜ)…</h2><p class="sub">1. Hafta · Olasılık Modelleri ve Aksiyomlar · 14/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">1C1</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Üç aksiyomdan yola çıkarak P(∅) = 0 ve P(Aᶜ) = 1 − P(A) olduğunu gösterin.</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Ω ve ∅ ayrık, Ω∪∅ = Ω. Toplamsallık: 1 = P(Ω) + P(∅) = 1 + P(∅), yani P(∅) = 0. A ve Aᶜ ayrık, A∪Aᶜ = Ω. Toplamsallık: P(A) + P(Aᶜ) = 1.</div></details>
+</div>
+</article>
+<article class="item" id="q1C2" data-k="14" data-g="1. Hafta · Olasılık Modelleri ve Aksiyomlar" data-kind="q">
+<h2>1C2 · P(A∪B) = P(A) + P(B) − P(A∩B) eşitliğini…</h2><p class="sub">1. Hafta · Olasılık Modelleri ve Aksiyomlar · 15/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">1C2</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">P(A∪B) = P(A) + P(B) − P(A∩B) eşitliğini aksiyomlardan türetin.</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">A∪B = A ∪ (B∩Aᶜ), bunlar ayrık: P(A∪B) = P(A) + P(B∩Aᶜ). Öte yandan B = (A∩B) ∪ (B∩Aᶜ), ayrık: P(B∩Aᶜ) = P(B) − P(A∩B). İkisini birleştirin.</div></details>
+</div>
+</article>
+<article class="item" id="q1C3" data-k="15" data-g="1. Hafta · Olasılık Modelleri ve Aksiyomlar" data-kind="q">
+<h2>1C3 · A ⊂ B ise P(A) ≤ P(B) olduğunu gösterin.</h2><p class="sub">1. Hafta · Olasılık Modelleri ve Aksiyomlar · 16/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">1C3</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">A ⊂ B ise P(A) ≤ P(B) olduğunu gösterin.</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">B = A ∪ (B∖A), ayrık. P(B) = P(A) + P(B∖A) ≥ P(A), çünkü P(B∖A) ≥ 0 (negatif olmama aksiyomu).</div></details>
+</div>
+</article>
+<article class="item" id="q1C4" data-k="16" data-g="1. Hafta · Olasılık Modelleri ve Aksiyomlar" data-kind="q">
+<h2>1C4 · Bir sınıfta öğrencilerin %70'i matematikten,…</h2><p class="sub">1. Hafta · Olasılık Modelleri ve Aksiyomlar · 17/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">1C4</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Bir sınıfta öğrencilerin %70'i matematikten, %60'ı fizikten geçmiş, %45'i ikisinden de geçmiştir. Rastgele seçilen öğrenci: (a) en az birinden geçmiş, (b) tam olarak birinden geçmiş, (c) hiçbirinden geçmemiş olma olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">(a) 0,7 + 0,6 − 0,45 = <b>0,85</b>. (b) 0,85 − 0,45 = <b>0,40</b> (veya 0,25 + 0,15). (c) 1 − 0,85 = <b>0,15</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q1C5" data-k="17" data-g="1. Hafta · Olasılık Modelleri ve Aksiyomlar" data-kind="q">
+<h2>1C5 · Altı yüzlü hileli bir zarda P(k) = c·k oluyor…</h2><p class="sub">1. Hafta · Olasılık Modelleri ve Aksiyomlar · 18/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">1C5</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Altı yüzlü hileli bir zarda P(k) = c·k oluyor (k = 1,…,6). c nedir? Çift gelme ve 5 veya daha büyük gelme olasılıkları nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">c(1+2+…+6) = 21c = 1, c = 1/21. Çift: (2+4+6)/21 = 12/21 = <b>4/7</b>. 5 veya 6: (5+6)/21 = <b>11/21</b>.</div></details>
+</div>
+</article>
+<article class="item" id="h1-video" data-k="18" data-g="1. Hafta · Olasılık Modelleri ve Aksiyomlar" data-kind="video">
+<h2>Videolar (7)</h2><p class="sub">1. Hafta · Olasılık Modelleri ve Aksiyomlar · 19/73</p>
+<div class="note vnote"><div class="vid" hidden></div><h3>Olasılık temelleri, örneklem uzayı, olaylar</h3><ul class="vlist"><li><div class="vt"><a href="https://www.youtube.com/watch?v=hhW5s3NFYvg" target="_blank" rel="noopener">Olasılık Nedir?</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="hhW5s3NFYvg" data-t="Olasılık Nedir?">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=9SafeYziRCA" target="_blank" rel="noopener">Para Atmada Olasılık Durumları</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="9SafeYziRCA" data-t="Para Atmada Olasılık Durumları">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=Gyku3zDgcSM" target="_blank" rel="noopener">Zar Atmada Olasılık Durumları</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="Gyku3zDgcSM" data-t="Zar Atmada Olasılık Durumları">Burada oynat</button></li></ul><h3>Tekdüze yasa ile hesap (top çekme, çözümlü sorular)</h3><ul class="vlist"><li><div class="vt"><a href="https://www.youtube.com/watch?v=rI25-oQO7a8" target="_blank" rel="noopener">Torbadan Top Çekme Sorularında Olasılık Durumları</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="rI25-oQO7a8" data-t="Torbadan Top Çekme Sorularında Olasılık Durumları">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=ZcgTSPDO_1s" target="_blank" rel="noopener">Olasılık Çözümlü Örnek Sorular (1. Bölüm)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="ZcgTSPDO_1s" data-t="Olasılık Çözümlü Örnek Sorular (1. Bölüm)">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=wtfXQxAiw_k" target="_blank" rel="noopener">Olasılık Çözümlü Örnek Sorular (2. Bölüm)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="wtfXQxAiw_k" data-t="Olasılık Çözümlü Örnek Sorular (2. Bölüm)">Burada oynat</button></li></ul><h3>Derse eşlik eden ders videosu (sunumdaki önerilen video)</h3><ul class="vlist"><li><div class="vt"><a href="https://www.youtube.com/watch?v=j9WZyLZCBzs" target="_blank" rel="noopener">1. Probability Models and Axioms</a><span class="vmeta">MIT OpenCourseWare <span class="lang en">EN, İngilizce</span></span></div><button type="button" class="play" data-id="j9WZyLZCBzs" data-t="1. Probability Models and Axioms">Burada oynat</button></li></ul>
+<div class="ctl"><a class="lnk" target="yt" rel="noopener" href="https://www.youtube.com/watch_videos?video_ids=hhW5s3NFYvg,9SafeYziRCA,Gyku3zDgcSM,rI25-oQO7a8,ZcgTSPDO_1s,wtfXQxAiw_k,j9WZyLZCBzs">Bu haftanın tüm videolarını sırayla oynat</a></div></div>
+</article>
+<article class="item" id="h2-ozet" data-k="19" data-g="2. Hafta · Koşullandırma ve Bayes Kuralı" data-kind="note">
+<h2>Konular ve formül özeti</h2><p class="sub">2. Hafta · Koşullandırma ve Bayes Kuralı · 20/73</p>
+
+<div class="note">
+  <h3>Sunumdaki konular</h3>
+  <ul><li>Koşullu (şartlı) olasılık, tek ve çift zar örnekleri</li><li>Örnek 1.9: koşullu olasılıklara dayalı örnek</li><li>Çarpma kuralı</li><li>Toplam olasılık teoremi (Örnek 1.6)</li><li>Bayes kuralı; satranç turnuvası problemi (Örnek 1.12 ve 1.16)</li><li>Monty Hall (Monty Salon) problemi</li></ul>
+  <h3>Formül özeti</h3>
+  <ul class="formlist"><li><span class="f1">P(A|B) = P(A∩B) / P(B), &nbsp; P(B) > 0</span></li><li><span class="f1">Çarpma: P(A₁∩A₂∩…∩Aₙ) = P(A₁) P(A₂|A₁) P(A₃|A₁∩A₂) …</span></li><li><span class="f1">Toplam olasılık: P(B) = Σ P(Aᵢ) P(B|Aᵢ) &nbsp; (Aᵢ ayrık ve Ω'yı kaplar)</span></li><li><span class="f1">Bayes: P(Aᵢ|B) = P(Aᵢ) P(B|Aᵢ) / Σⱼ P(Aⱼ) P(B|Aⱼ)</span></li></ul>
+</div>
+</article>
+<article class="item" id="q2A1" data-k="20" data-g="2. Hafta · Koşullandırma ve Bayes Kuralı" data-kind="q">
+<h2>2A1 · Adil zar atılıyor. 1 gelme olasılığı nedir?…</h2><p class="sub">2. Hafta · Koşullandırma ve Bayes Kuralı · 21/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">2A1</b><span class="lv">Örnek / temel sorular</span><span class="tag sunum">Sunum: Sunum Hafta 2, zar örneği</span></div>
+  <p class="qtext">Adil zar atılıyor. 1 gelme olasılığı nedir? Sonucun tek olduğu bilindiğine göre 1 gelme olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">P(1) = 1/6. Tek sonuçlar {1, 3, 5}. P(1|tek) = (1/6)/(1/2) = <b>1/3</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q2A2" data-k="21" data-g="2. Hafta · Koşullandırma ve Bayes Kuralı" data-kind="q">
+<h2>2A2 · Adil zar art arda iki kez atılıyor. İlk…</h2><p class="sub">2. Hafta · Koşullandırma ve Bayes Kuralı · 22/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">2A2</b><span class="lv">Örnek / temel sorular</span><span class="tag sunum">Sunum: Sunum Hafta 2, iki zar örneği</span></div>
+  <p class="qtext">Adil zar art arda iki kez atılıyor. İlk atışın 6 gelme olasılığı nedir? İki atışın toplamı 9 olduğuna göre ilk atışın 6 olma olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">P(ilk = 6) = 1/6. Toplam 9: (3,6), (4,5), (5,4), (6,3) = 4 sonuç. İlk 6 olan tek sonuç (6,3). P = <b>1/4</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q2A3" data-k="22" data-g="2. Hafta · Koşullandırma ve Bayes Kuralı" data-kind="q">
+<h2>2A3 · Bir torbada 5 kırmızı, 3 mavi top var. Geri…</h2><p class="sub">2. Hafta · Koşullandırma ve Bayes Kuralı · 23/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">2A3</b><span class="lv">Örnek / temel sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Bir torbada 5 kırmızı, 3 mavi top var. Geri koymadan 2 top çekiliyor. İkisinin de kırmızı olma olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Çarpma kuralı: (5/8)(4/7) = 20/56 = <b>5/14</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q2A4" data-k="23" data-g="2. Hafta · Koşullandırma ve Bayes Kuralı" data-kind="q">
+<h2>2A4 · Kutu A'da 3 beyaz, 2 siyah; Kutu B'de 1…</h2><p class="sub">2. Hafta · Koşullandırma ve Bayes Kuralı · 24/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">2A4</b><span class="lv">Örnek / temel sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Kutu A'da 3 beyaz, 2 siyah; Kutu B'de 1 beyaz, 4 siyah top var. Yazı tura ile bir kutu seçiliyor, kutudan 1 top çekiliyor. Topun beyaz olma olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Toplam olasılık: 0,5·(3/5) + 0,5·(1/5) = 0,3 + 0,1 = <b>0,4</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q2A5" data-k="24" data-g="2. Hafta · Koşullandırma ve Bayes Kuralı" data-kind="q">
+<h2>2A5 · Önceki soruda çekilen top beyaz çıktı. Topun…</h2><p class="sub">2. Hafta · Koşullandırma ve Bayes Kuralı · 25/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">2A5</b><span class="lv">Örnek / temel sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Önceki soruda çekilen top beyaz çıktı. Topun Kutu A'dan gelmiş olma olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Bayes: P(A|beyaz) = 0,3 / 0,4 = <b>3/4</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q2A6" data-k="25" data-g="2. Hafta · Koşullandırma ve Bayes Kuralı" data-kind="q">
+<h2>2A6 · P(A) = 0,5, P(B) = 0,4, P(A∩B) = 0,2 ise…</h2><p class="sub">2. Hafta · Koşullandırma ve Bayes Kuralı · 26/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">2A6</b><span class="lv">Örnek / temel sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">P(A) = 0,5, P(B) = 0,4, P(A∩B) = 0,2 ise P(A|B) ve P(B|A) nedir? Bu iki olay bağımsız mı?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">P(A|B) = 0,2/0,4 = <b>0,5</b>. P(B|A) = 0,2/0,5 = <b>0,4</b>. P(A|B) = P(A) olduğu için olaylar <b>bağımsızdır</b> (Hafta 3 konusuna köprü).</div></details>
+</div>
+</article>
+<article class="item" id="q2B1" data-k="26" data-g="2. Hafta · Koşullandırma ve Bayes Kuralı" data-kind="q">
+<h2>2B1 · Satranç turnuvasında rakiplerin yarısına…</h2><p class="sub">2. Hafta · Koşullandırma ve Bayes Kuralı · 27/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">2B1</b><span class="lv">İleri düzey sorular</span><span class="tag sunum">Sunum: Sunum Hafta 2, Örnek 1.12 ve 1.16</span></div>
+  <p class="qtext">Satranç turnuvasında rakiplerin yarısına karşı kazanma olasılığınız 0,3 (tip 1), dörtte birine karşı 0,4 (tip 2), dörtte birine karşı 0,5 (tip 3). (a) Rastgele rakiple oynayınca kazanma olasılığı nedir? (b) Kazandığınıza göre rakibin tip 1 olma olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">(a) Toplam olasılık: 0,5·0,3 + 0,25·0,4 + 0,25·0,5 = 0,15 + 0,10 + 0,125 = <b>0,375</b>.<br>(b) Bayes: 0,15 / 0,375 = <b>0,4</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q2B2" data-k="27" data-g="2. Hafta · Koşullandırma ve Bayes Kuralı" data-kind="q">
+<h2>2B2 · Üç kapıdan birinin arkasında ödül var. 1.…</h2><p class="sub">2. Hafta · Koşullandırma ve Bayes Kuralı · 28/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">2B2</b><span class="lv">İleri düzey sorular</span><span class="tag sunum">Sunum: Sunum Hafta 2, Monty Hall</span></div>
+  <p class="qtext">Üç kapıdan birinin arkasında ödül var. 1. kapıyı seçiyorsunuz, arkadaşınız ödülün olmadığı bir kapıyı açıyor. Stratejiler: (i) ilk seçimde kal, (ii) diğer kapıya geç, (iii) 2. kapı açılırsa kal, 3. kapı açılırsa geç. En iyisi hangisi?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">(i) Kazanma = 1/3. (ii) Kazanma = 2/3 (ilk seçim yanlışsa geçmek kazandırır). (iii) Ödül 1'de (1/3): sunucu 2 veya 3'ü yarı yarıya açar; 2 açılırsa kalıp kazanırsınız: (1/3)(1/2). Ödül 2'de (1/3): sunucu 3'ü açar, geçip kazanırsınız: 1/3. Ödül 3'te: sunucu 2'yi açar, kalırsınız, kaybedersiniz. Toplam = 1/6 + 1/3 = 1/2. <b>En iyi strateji (ii): her zaman geç, 2/3.</b> (Varsayım: iki boş kapı varsa sunucu rastgele seçer.)</div></details>
+</div>
+</article>
+<article class="item" id="q2B3" data-k="28" data-g="2. Hafta · Koşullandırma ve Bayes Kuralı" data-kind="q">
+<h2>2B3 · Bir hastalık nüfusun %1'inde görülüyor.…</h2><p class="sub">2. Hafta · Koşullandırma ve Bayes Kuralı · 29/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">2B3</b><span class="lv">İleri düzey sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Bir hastalık nüfusun %1'inde görülüyor. Testin hastaları yakalama oranı %95, sağlamlara yanlış pozitif verme oranı %5. Testi pozitif çıkan kişinin gerçekten hasta olma olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">P(+) = 0,01·0,95 + 0,99·0,05 = 0,0095 + 0,0495 = 0,059. P(hasta|+) = 0,0095/0,059 ≈ <b>0,161 (yaklaşık %16)</b>. Hastalık nadir olduğu için pozitif test bile çoğunlukla yanlış alarmdır.</div></details>
+</div>
+</article>
+<article class="item" id="q2B4" data-k="29" data-g="2. Hafta · Koşullandırma ve Bayes Kuralı" data-kind="q">
+<h2>2B4 · Gelen e-postaların %30'u spam. "kampanya"…</h2><p class="sub">2. Hafta · Koşullandırma ve Bayes Kuralı · 30/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">2B4</b><span class="lv">İleri düzey sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Gelen e-postaların %30'u spam. "kampanya" kelimesi spam e-postaların %60'ında, normal e-postaların %5'inde geçiyor. Bu kelimeyi içeren bir e-postanın spam olma olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">P(kelime) = 0,3·0,6 + 0,7·0,05 = 0,18 + 0,035 = 0,215. P(spam|kelime) = 0,18/0,215 ≈ <b>0,837</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q2C1" data-k="30" data-g="2. Hafta · Koşullandırma ve Bayes Kuralı" data-kind="q">
+<h2>2C1 · Bir uzmandan ürün tasarımlarını "başarılı"…</h2><p class="sub">2. Hafta · Koşullandırma ve Bayes Kuralı · 31/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">2C1</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag site">Siteden: BUders Vize Prova-1, Soru 1 (soru metni sitedeki görselden aktarıldı)</span></div>
+  <p class="qtext">Bir uzmandan ürün tasarımlarını "başarılı" veya "başarısız" olarak değerlendirmesi isteniyor. Geçmişte yüksek düzeyde başarılı ürünlerin %95'i, orta düzeyde başarılı ürünlerin %59'u, zayıf ürünlerin %11'i "başarılı" notu almış. Ürünlerin gerçek dağılımı yüksek, orta, zayıf için %40, %35, %25 tahmin ediliyor.<br>a) Olasılık ağacı çizin.<br>b) Ürünün "başarılı" notu alma olasılığı nedir?<br>c) "Başarılı" notu alan ürünün gerçekte yüksek düzeyde başarılı olma olasılığı nedir?<br>d) "Başarılı" notu almayan ürünün gerçekte yüksek düzeyde başarılı olma olasılığı nedir?</p>
+  <p class="srcline">Soru sayfası: <a href="https://www.buders.com/altsayfa/yazili_sinavlari/olasilik_ve_istatistik_vize_prova_1/olasilik_ve_istatistik_vize_prova_1.html" target="_blank" rel="noopener">buders.com/altsayfa/yazili_sinavlari/olasilik_ve_istatistik_vize_prova_1/olasilik_ve_istatistik_vize_prova_1.html</a><br>Sitenin çözüm videosu: <a href="https://youtu.be/VQOeZf1y-wo" target="_blank" rel="noopener">youtu.be/VQOeZf1y-wo</a><br><i>Cevap sitedeki video çözümden değil, benim hesabımdır; videoyla karşılaştır.</i></p>
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Ağaç: ilk dal Yüksek 0,40 / Orta 0,35 / Zayıf 0,25. Her birinden "başarılı" dalı 0,95 / 0,59 / 0,11, "başarısız" dalı 0,05 / 0,41 / 0,89.<br>b) 0,40·0,95 + 0,35·0,59 + 0,25·0,11 = 0,38 + 0,2065 + 0,0275 = <b>0,614</b>.<br>c) 0,38 / 0,614 ≈ <b>0,619</b>.<br>d) P(başarısız) = 0,386. 0,40·0,05 / 0,386 = 0,02 / 0,386 ≈ <b>0,052</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q2C2" data-k="31" data-g="2. Hafta · Koşullandırma ve Bayes Kuralı" data-kind="q">
+<h2>2C2 · Bir fabrikanın ürünleri iki makineden…</h2><p class="sub">2. Hafta · Koşullandırma ve Bayes Kuralı · 32/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">2C2</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag site">Siteden: BUders Vize Prova-2, Soru 2 (soru metni sitedeki görselden aktarıldı)</span></div>
+  <p class="qtext">Bir fabrikanın ürünleri iki makineden çıkıyor. Makine 1 üretimin %40'ını üretir, hata oranı %2. Makine 2 üretimin %60'ını üretir, hata oranı %5. Rastgele seçilen ürün hatalı ise Makine 1'den gelme olasılığı nedir?</p>
+  <p class="srcline">Soru sayfası: <a href="https://www.buders.com/altsayfa/yazili_sinavlari/olasilik_ve_istatistik_vize_prova_2/olasilik_ve_istatistik_vize_prova_2.html" target="_blank" rel="noopener">buders.com/altsayfa/yazili_sinavlari/olasilik_ve_istatistik_vize_prova_2/olasilik_ve_istatistik_vize_prova_2.html</a><br>Sitenin çözüm videosu: <a href="https://youtu.be/PPqONF48Ku0" target="_blank" rel="noopener">youtu.be/PPqONF48Ku0</a><br><i>Cevap sitedeki video çözümden değil, benim hesabımdır; videoyla karşılaştır.</i></p>
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">P(hatalı) = 0,4·0,02 + 0,6·0,05 = 0,008 + 0,030 = 0,038. P(M1|hatalı) = 0,008 / 0,038 = 4/19 ≈ <b>0,211</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q2C3" data-k="32" data-g="2. Hafta · Koşullandırma ve Bayes Kuralı" data-kind="q">
+<h2>2C3 · Çarpma kuralını kullanarak 52 kartlık…</h2><p class="sub">2. Hafta · Koşullandırma ve Bayes Kuralı · 33/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">2C3</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Çarpma kuralını kullanarak 52 kartlık desteden geri koymadan çekilen 3 kartın üçünün de as olma olasılığını bulun.</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">(4/52)(3/51)(2/50) = 24/132600 = <b>1/5525</b> ≈ 0,00018.</div></details>
+</div>
+</article>
+<article class="item" id="q2C4" data-k="33" data-g="2. Hafta · Koşullandırma ve Bayes Kuralı" data-kind="q">
+<h2>2C4 · P(A|B) > P(A) ise P(B|A) > P(B) olduğunu…</h2><p class="sub">2. Hafta · Koşullandırma ve Bayes Kuralı · 34/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">2C4</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">P(A|B) > P(A) ise P(B|A) > P(B) olduğunu gösterin. Bunun yorumu nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Bayes: P(B|A) = P(A|B)·P(B) / P(A). P(A|B) > P(A) olduğu için P(A|B)/P(A) > 1, dolayısıyla P(B|A) > P(B). Yorum: B, A'yı olası kılıyorsa A da B'yi olası kılar; ilişki simetriktir.</div></details>
+</div>
+</article>
+<article class="item" id="q2C5" data-k="34" data-g="2. Hafta · Koşullandırma ve Bayes Kuralı" data-kind="q">
+<h2>2C5 · Önceki tıbbi test sorusunda (yaygınlık %1,…</h2><p class="sub">2. Hafta · Koşullandırma ve Bayes Kuralı · 35/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">2C5</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Önceki tıbbi test sorusunda (yaygınlık %1, duyarlılık %95, yanlış pozitif %5) aynı kişiye ikinci bir bağımsız test uygulanıyor ve o da pozitif çıkıyor. Kişinin hasta olma olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">İlk testten sonra öncül olasılık 0,161. İkinci test: pay 0,161·0,95 = 0,153; payda 0,153 + 0,839·0,05 = 0,153 + 0,042 = 0,195. Sonuç ≈ <b>0,785 (yaklaşık %78)</b>. Testler hastalık bilindiğinde koşullu bağımsız varsayıldı (Hafta 3).</div></details>
+</div>
+</article>
+<article class="item" id="h2-video" data-k="35" data-g="2. Hafta · Koşullandırma ve Bayes Kuralı" data-kind="video">
+<h2>Videolar (11)</h2><p class="sub">2. Hafta · Koşullandırma ve Bayes Kuralı · 36/73</p>
+<div class="note vnote"><div class="vid" hidden></div><h3>Koşullu olasılık</h3><ul class="vlist"><li><div class="vt"><a href="https://www.youtube.com/watch?v=WOuCeDE2n-w" target="_blank" rel="noopener">Koşullu Olasılık  (Conditional Probability)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="WOuCeDE2n-w" data-t="Koşullu Olasılık  (Conditional Probability)">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=0sbgLZ0CVR4" target="_blank" rel="noopener">Koşullu Olasılık Örnek Soru-1</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="0sbgLZ0CVR4" data-t="Koşullu Olasılık Örnek Soru-1">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=m0fjoToXzT0" target="_blank" rel="noopener">Koşullu Olasılık Örnek Soru-2</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="m0fjoToXzT0" data-t="Koşullu Olasılık Örnek Soru-2">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=ZHiussUmQlE" target="_blank" rel="noopener">Vize ve Finalde Çıkabilecek Sorular-8</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="ZHiussUmQlE" data-t="Vize ve Finalde Çıkabilecek Sorular-8">Burada oynat</button></li></ul><h3>Toplam olasılık ve Bayes teoremi</h3><ul class="vlist"><li><div class="vt"><a href="https://www.youtube.com/watch?v=3EHauU__ldg" target="_blank" rel="noopener">Bayes Teoremi (Bayes' Theorem)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="3EHauU__ldg" data-t="Bayes Teoremi (Bayes' Theorem)">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=pRsroB7rvx8" target="_blank" rel="noopener">Bayes Teoremi Örnek Soru-1</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="pRsroB7rvx8" data-t="Bayes Teoremi Örnek Soru-1">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=HvpMoMGBi94" target="_blank" rel="noopener">Bayes Teoremi Örnek Soru-2</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="HvpMoMGBi94" data-t="Bayes Teoremi Örnek Soru-2">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=MkVTHY4ye_Y" target="_blank" rel="noopener">Vize ve Finalde Çıkabilecek Sorular-15</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="MkVTHY4ye_Y" data-t="Vize ve Finalde Çıkabilecek Sorular-15">Burada oynat</button></li></ul><h3>Siteden aldığım vize sorularının çözüm videoları (Soru 1 ve Soru 2)</h3><ul class="vlist"><li><div class="vt"><a href="https://www.youtube.com/watch?v=VQOeZf1y-wo" target="_blank" rel="noopener">Olasılık ve İstatistik Vize Sınav Provası-1 Çözümler (1.soru)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="VQOeZf1y-wo" data-t="Olasılık ve İstatistik Vize Sınav Provası-1 Çözümler (1.soru)">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=PPqONF48Ku0" target="_blank" rel="noopener">Olasılık ve İstatistik Vize Sınav Provası-2 Çözümler (2.soru)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="PPqONF48Ku0" data-t="Olasılık ve İstatistik Vize Sınav Provası-2 Çözümler (2.soru)">Burada oynat</button></li></ul><h3>Derse eşlik eden ders videosu (sunumdaki önerilen video)</h3><ul class="vlist"><li><div class="vt"><a href="https://www.youtube.com/watch?v=TluTv5V0RmE" target="_blank" rel="noopener">2. Conditioning and Bayes' Rule</a><span class="vmeta">MIT OpenCourseWare <span class="lang en">EN, İngilizce</span></span></div><button type="button" class="play" data-id="TluTv5V0RmE" data-t="2. Conditioning and Bayes' Rule">Burada oynat</button></li></ul>
+<div class="ctl"><a class="lnk" target="yt" rel="noopener" href="https://www.youtube.com/watch_videos?video_ids=WOuCeDE2n-w,0sbgLZ0CVR4,m0fjoToXzT0,ZHiussUmQlE,3EHauU__ldg,pRsroB7rvx8,HvpMoMGBi94,MkVTHY4ye_Y,VQOeZf1y-wo,PPqONF48Ku0,TluTv5V0RmE">Bu haftanın tüm videolarını sırayla oynat</a></div></div>
+</article>
+<article class="item" id="h3-ozet" data-k="36" data-g="3. Hafta · Bağımsızlık" data-kind="note">
+<h2>Konular ve formül özeti</h2><p class="sub">3. Hafta · Bağımsızlık · 37/73</p>
+
+<div class="note">
+  <h3>Sunumdaki konular</h3>
+  <ul><li>Hileli para örneği</li><li>Bağımsızlık tanımı: P(A∩B) = P(A)P(B)</li><li>Koşullu (şartlı) bağımsızlık</li><li>Örnek 1.17: 4 yüzlü zar iki atış, olayların bağımsızlığı</li><li>Örnek 1.21: iki zar, ikili ve üçlü bağımsızlık</li><li>Problem 1.30: avcı ve iki köpek</li><li>Kralın kardeşleri problemi</li><li>Problem 1.24: mahkum ikilemi</li></ul>
+  <h3>Formül özeti</h3>
+  <ul class="formlist"><li><span class="f1">A, B bağımsız ⇔ P(A∩B) = P(A)P(B) ⇔ P(A|B) = P(A)</span></li><li><span class="f1">A, B bağımsızsa A ile Bᶜ de bağımsızdır</span></li><li><span class="f1">Koşullu bağımsızlık: P(A∩B|C) = P(A|C) P(B|C)</span></li><li><span class="f1">Üçlü bağımsızlık: üç ikili eşitlik ve P(A∩B∩C) = P(A)P(B)P(C) birlikte gerekir</span></li><li><span class="f1">Ayrık (kesişimi boş) iki olay, olasılıkları sıfır değilse bağımsız olamaz</span></li></ul>
+</div>
+</article>
+<article class="item" id="q3A1" data-k="37" data-g="3. Hafta · Bağımsızlık" data-kind="q">
+<h2>3A1 · A ve B bağımsız, P(A) = 0,3, P(B) = 0,5.…</h2><p class="sub">3. Hafta · Bağımsızlık · 38/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">3A1</b><span class="lv">Örnek / temel sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">A ve B bağımsız, P(A) = 0,3, P(B) = 0,5. P(A∩B) ve P(A∪B) nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">P(A∩B) = 0,3·0,5 = <b>0,15</b>. P(A∪B) = 0,3 + 0,5 − 0,15 = <b>0,65</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q3A2" data-k="38" data-g="3. Hafta · Bağımsızlık" data-kind="q">
+<h2>3A2 · İki adil para atılıyor. A: ilk para yazı, B:…</h2><p class="sub">3. Hafta · Bağımsızlık · 39/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">3A2</b><span class="lv">Örnek / temel sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">İki adil para atılıyor. A: ilk para yazı, B: ikinci para yazı. A ve B bağımsız mı?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">P(A) = P(B) = 1/2, P(A∩B) = 1/4 = (1/2)(1/2). <b>Bağımsızdır.</b></div></details>
+</div>
+</article>
+<article class="item" id="q3A3" data-k="39" data-g="3. Hafta · Bağımsızlık" data-kind="q">
+<h2>3A3 · Adil 4 yüzlü zar iki kez atılıyor, 16 sonuç…</h2><p class="sub">3. Hafta · Bağımsızlık · 40/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">3A3</b><span class="lv">Örnek / temel sorular</span><span class="tag sunum">Sunum: Örnek 1.17 türü (olaylar hocanın sunumunda görsel olduğu için kendi olaylarımı yazdım)</span></div>
+  <p class="qtext">Adil 4 yüzlü zar iki kez atılıyor, 16 sonuç eşit olasılıklı. A: ilk atış 1, B: toplam 5, C: toplam 4. A ile B bağımsız mı? A ile C bağımsız mı?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">P(A) = 4/16 = 1/4. B: (1,4), (2,3), (3,2), (4,1), P(B) = 1/4. A∩B = {(1,4)}, P = 1/16 = (1/4)(1/4). <b>A ve B bağımsız.</b><br>C: (1,3), (2,2), (3,1), P(C) = 3/16. A∩C = {(1,3)}, P = 1/16. Çarpım = (1/4)(3/16) = 3/64 ≠ 1/16. <b>A ve C bağımsız değil.</b></div></details>
+</div>
+</article>
+<article class="item" id="q3A4" data-k="40" data-g="3. Hafta · Bağımsızlık" data-kind="q">
+<h2>3A4 · P(A) = 0,3 ve P(B) = 0,4 olan A, B ayrık…</h2><p class="sub">3. Hafta · Bağımsızlık · 41/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">3A4</b><span class="lv">Örnek / temel sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">P(A) = 0,3 ve P(B) = 0,4 olan A, B ayrık olaylar. Bağımsız olabilirler mi?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Ayrık olduklarından P(A∩B) = 0. Bağımsız olsalardı 0,3·0,4 = 0,12 olmalıydı. <b>Bağımsız değiller.</b> Ayrık olmak ile bağımsız olmak farklı kavramlardır.</div></details>
+</div>
+</article>
+<article class="item" id="q3A5" data-k="41" data-g="3. Hafta · Bağımsızlık" data-kind="q">
+<h2>3A5 · Yazı gelme olasılığı 0,6 olan hileli para 4…</h2><p class="sub">3. Hafta · Bağımsızlık · 42/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">3A5</b><span class="lv">Örnek / temel sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Yazı gelme olasılığı 0,6 olan hileli para 4 kez bağımsız atılıyor. Dördünün de yazı gelmesi ve en az bir tura gelmesi olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Hepsi yazı: 0,6⁴ = <b>0,1296</b>. En az bir tura: 1 − 0,1296 = <b>0,8704</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q3A6" data-k="42" data-g="3. Hafta · Bağımsızlık" data-kind="q">
+<h2>3A6 · Bir devrede iki bileşen paralel bağlı, her…</h2><p class="sub">3. Hafta · Bağımsızlık · 43/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">3A6</b><span class="lv">Örnek / temel sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Bir devrede iki bileşen paralel bağlı, her biri bağımsız olarak 0,9 olasılıkla çalışıyor. Bu paralel blok, 0,8 olasılıkla çalışan bir bileşenle seri bağlı. Devrenin çalışma olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Paralel blok: 1 − (0,1)(0,1) = 0,99. Seri: 0,99 · 0,8 = <b>0,792</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q3B1" data-k="43" data-g="3. Hafta · Bağımsızlık" data-kind="q">
+<h2>3B1 · Avcının iki köpeği bağımsız olarak p…</h2><p class="sub">3. Hafta · Bağımsızlık · 44/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">3B1</b><span class="lv">İleri düzey sorular</span><span class="tag sunum">Sunum: Sunum Hafta 3, Problem 1.30</span></div>
+  <p class="qtext">Avcının iki köpeği bağımsız olarak p olasılıkla doğru yolu seçiyor. Strateji (i): ikisi aynı yolu seçerse o yoldan git, farklıysa rastgele bir yol seç. Strateji (ii): yalnızca bir köpeğe güven. Hangisi daha iyi?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">(ii) doğru yol olasılığı = p. (i): ikisi de doğru p², farklı seçerlerse 2p(1−p) olasılıkla rastgele seçim, yarı yarıya doğru: p² + (1/2)·2p(1−p) = p² + p − p² = <b>p</b>. <b>İki strateji eşit.</b> Sezgiyle (i) daha iyi gibi görünse de kazanç yok.</div></details>
+</div>
+</article>
+<article class="item" id="q3B2" data-k="44" data-g="3. Hafta · Bağımsızlık" data-kind="q">
+<h2>3B2 · Geleneksel kraliyet ailelerinde erkek çocuk,…</h2><p class="sub">3. Hafta · Bağımsızlık · 45/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">3B2</b><span class="lv">İleri düzey sorular</span><span class="tag sunum">Sunum: Sunum Hafta 3, Kralın kardeşleri</span></div>
+  <p class="qtext">Geleneksel kraliyet ailelerinde erkek çocuk, ablası olsa bile kral olur. İki çocuklu bir aileden gelen kralın kardeşinin kız olma olasılığı nedir? Her çocuk bağımsız olarak 1/2 olasılıkla kız veya erkek.</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Aile sonuçları (büyük, küçük): EE, EK, KE, KK, her biri 1/4. Kral olması için ailede en az bir erkek gerekir: KK elenir. Kalan EE, EK, KE. Kardeşi kız olanlar EK ve KE: P = <b>2/3</b>. (Dikkat: "rastgele seçilen bir çocuk erkek çıktı" deseydi 1/2 olurdu. Hocanın çözümünü ders notuyla doğrulayın.)</div></details>
+</div>
+</article>
+<article class="item" id="q3B3" data-k="45" data-g="3. Hafta · Bağımsızlık" data-kind="q">
+<h2>3B3 · Üç mahkumdan ikisi serbest bırakılacak.…</h2><p class="sub">3. Hafta · Bağımsızlık · 46/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">3B3</b><span class="lv">İleri düzey sorular</span><span class="tag sunum">Sunum: Sunum Hafta 3, Problem 1.24</span></div>
+  <p class="qtext">Üç mahkumdan ikisi serbest bırakılacak. Mahkum A, gardiyana "kendim dışında kim serbest kalacak?" diye sormaktan çekiniyor: şimdi serbest kalma olasılığı 2/3, cevaptan sonra iki kişi kalacağı için 1/2 olacak diye düşünüyor. Hata nerede?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Serbest kalan çiftler AB, AC, BC (her biri 1/3). Gardiyan "B" dedi diyelim. AB ise B der (olasılık 1). AC ise C der. BC ise B veya C der (1/2). P(A serbest | "B") = (1/3·1) / (1/3·1 + 1/3·1/2) = (1/3)/(1/2) = <b>2/3</b>. Hata: kalan iki kişiyi eşit olasılıklı saymak. Gardiyanın cevabı, BC durumunda yarı yarıya verilen bir cevap olduğu için bilgi eşit dağılmıyor. A'nın olasılığı değişmez.</div></details>
+</div>
+</article>
+<article class="item" id="q3B4" data-k="46" data-g="3. Hafta · Bağımsızlık" data-kind="q">
+<h2>3B4 · İki paradan biri adil, diğeri yazı olasılığı…</h2><p class="sub">3. Hafta · Bağımsızlık · 47/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">3B4</b><span class="lv">İleri düzey sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">İki paradan biri adil, diğeri yazı olasılığı 0,9 olan hileli. Rastgele biri seçilip 2 kez atılıyor. A: ilk atış yazı, B: ikinci atış yazı. A ve B bağımsız mı? Hangi koşulda koşullu bağımsız?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">P(A) = P(B) = 0,5·0,5 + 0,5·0,9 = 0,7. P(A∩B) = 0,5·0,25 + 0,5·0,81 = 0,125 + 0,405 = 0,53. P(A)P(B) = 0,49 ≠ 0,53. <b>Bağımsız değil</b> (ilk yazı, hileli para olasılığını artırır). Hangi para seçildiği bilinirse atışlar bağımsızdır: <b>koşullu bağımsız</b> (para bilgisi koşulu).</div></details>
+</div>
+</article>
+<article class="item" id="q3B5" data-k="47" data-g="3. Hafta · Bağımsızlık" data-kind="q">
+<h2>3B5 · İki adil zar bağımsız atılıyor. A: ilk zar…</h2><p class="sub">3. Hafta · Bağımsızlık · 48/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">3B5</b><span class="lv">İleri düzey sorular</span><span class="tag sunum">Sunum: Örnek 1.21 türü (olayları kendim kurdum)</span></div>
+  <p class="qtext">İki adil zar bağımsız atılıyor. A: ilk zar tek, B: ikinci zar tek, C: toplam tek. Olaylar ikili bağımsız mı? Üçlü bağımsız mı?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">P(A) = P(B) = P(C) = 1/2. A∩B: ikisi tek, 1/4. A∩C: ilk tek ve ikinci çift, 1/4. B∩C: 1/4. İkili eşitliklerin hepsi (1/2)(1/2) = 1/4: <b>ikili bağımsız</b>. Üçlü: iki tek zarın toplamı çift olduğundan A∩B∩C = ∅, P = 0 ≠ 1/8. <b>Üçlü bağımsız değil.</b></div></details>
+</div>
+</article>
+<article class="item" id="q3C1" data-k="48" data-g="3. Hafta · Bağımsızlık" data-kind="q">
+<h2>3C1 · Bir makine üç bileşenden oluşuyor.…</h2><p class="sub">3. Hafta · Bağımsızlık · 49/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">3C1</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag site">Siteden: BUders Vize Prova-2, Soru 1 (soru metni sitedeki görselden aktarıldı)</span></div>
+  <p class="qtext">Bir makine üç bileşenden oluşuyor. Bileşenlerin bağımsız olarak arızalanma olasılığı sırasıyla 0,1, 0,2 ve 0,3. Makine, en az iki bileşen sağlam olduğunda çalışıyor. Makinenin çalışma olasılığını bulun.</p>
+  <p class="srcline">Soru sayfası: <a href="https://www.buders.com/altsayfa/yazili_sinavlari/olasilik_ve_istatistik_vize_prova_2/olasilik_ve_istatistik_vize_prova_2.html" target="_blank" rel="noopener">buders.com/altsayfa/yazili_sinavlari/olasilik_ve_istatistik_vize_prova_2/olasilik_ve_istatistik_vize_prova_2.html</a><br>Sitenin çözüm videosu: <a href="https://youtu.be/oOjNFiN02rU" target="_blank" rel="noopener">youtu.be/oOjNFiN02rU</a><br><i>Cevap sitedeki video çözümden değil, benim hesabımdır; videoyla karşılaştır.</i></p>
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Sağlam olma: 0,9, 0,8, 0,7. Üçü sağlam: 0,9·0,8·0,7 = 0,504. Tam iki sağlam: yalnız 1. arızalı 0,1·0,8·0,7 = 0,056; yalnız 2. arızalı 0,9·0,2·0,7 = 0,126; yalnız 3. arızalı 0,9·0,8·0,3 = 0,216; toplam 0,398. Çalışma olasılığı = 0,504 + 0,398 = <b>0,902</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q3C2" data-k="49" data-g="3. Hafta · Bağımsızlık" data-kind="q">
+<h2>3C2 · Çiftler üzerinde yapılan ankete göre…</h2><p class="sub">3. Hafta · Bağımsızlık · 50/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">3C2</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag site">Siteden: BUders Vize Prova-3, Soru 1 (soru metni sitedeki görselden aktarıldı)</span></div>
+  <p class="qtext">Çiftler üzerinde yapılan ankete göre kadınların %30'u, kocaların %50'si belirli bir televizyon programını izliyor. Kadın programı izliyorsa kocasının da izleme olasılığı %60. Rastgele seçilen bir çift için:<br>a) Olasılık ağacı çizin.<br>b) Hem kadının hem kocanın izleme olasılığı?<br>c) En az birinin izleme olasılığı?<br>d) Koca izlediğine göre kadının da izleme olasılığı?</p>
+  <p class="srcline">Soru sayfası: <a href="https://www.buders.com/altsayfa/yazili_sinavlari/olasilik_ve_istatistik_vize_prova_3/olasilik_ve_istatistik_vize_prova_3.html" target="_blank" rel="noopener">buders.com/altsayfa/yazili_sinavlari/olasilik_ve_istatistik_vize_prova_3/olasilik_ve_istatistik_vize_prova_3.html</a><br>Sitenin çözüm videosu: <a href="https://youtu.be/IeUM1MNYv5k" target="_blank" rel="noopener">youtu.be/IeUM1MNYv5k</a><br><i>Cevap sitedeki video çözümden değil, benim hesabımdır; videoyla karşılaştır.</i></p>
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">K: kadın izliyor, E: koca izliyor. P(K) = 0,3, P(E) = 0,5, P(E|K) = 0,6.<br>a) Ağaç: K 0,3 / Kᶜ 0,7. K dalından E 0,6 / Eᶜ 0,4. Kᶜ dalından P(E|Kᶜ) = (0,5 − 0,18)/0,7 ≈ 0,457, Eᶜ ≈ 0,543.<br>b) P(K∩E) = 0,3·0,6 = <b>0,18</b>.<br>c) P(K∪E) = 0,3 + 0,5 − 0,18 = <b>0,62</b>.<br>d) P(K|E) = 0,18/0,5 = <b>0,36</b>. (0,6 ≠ 0,5 olduğu için K ve E bağımsız değil.)</div></details>
+</div>
+</article>
+<article class="item" id="q3C3" data-k="50" data-g="3. Hafta · Bağımsızlık" data-kind="q">
+<h2>3C3 · A ve B bağımsız ise A ile Bᶜ nin de bağımsız…</h2><p class="sub">3. Hafta · Bağımsızlık · 51/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">3C3</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">A ve B bağımsız ise A ile Bᶜ nin de bağımsız olduğunu gösterin.</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">P(A∩Bᶜ) = P(A) − P(A∩B) = P(A) − P(A)P(B) = P(A)(1 − P(B)) = P(A)P(Bᶜ).</div></details>
+</div>
+</article>
+<article class="item" id="q3C4" data-k="51" data-g="3. Hafta · Bağımsızlık" data-kind="q">
+<h2>3C4 · Bir güvenlik sisteminde 3 bağımsız alarm var.…</h2><p class="sub">3. Hafta · Bağımsızlık · 52/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">3C4</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Bir güvenlik sisteminde 3 bağımsız alarm var. Her biri ihlali 0,9 olasılıkla yakalıyor. (a) Sistemin en az bir alarmla yakalama olasılığı nedir? (b) En az ikisinin yakalama olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">(a) 1 − (0,1)³ = <b>0,999</b>. (b) Tam 2: 3·(0,9)²·0,1 = 0,243. Tam 3: 0,729. Toplam <b>0,972</b>.</div></details>
+</div>
+</article>
+<article class="item" id="h3-video" data-k="52" data-g="3. Hafta · Bağımsızlık" data-kind="video">
+<h2>Videolar (9)</h2><p class="sub">3. Hafta · Bağımsızlık · 53/73</p>
+<div class="note vnote"><div class="vid" hidden></div><h3>Koşullu olasılık ve bağımsız olaylar</h3><ul class="vlist"><li><div class="vt"><a href="https://www.youtube.com/watch?v=_TYobV7Paug" target="_blank" rel="noopener">Vize ve Finalde Çıkabilecek Sorular-39</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="_TYobV7Paug" data-t="Vize ve Finalde Çıkabilecek Sorular-39">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=Te1CSlwKKC8" target="_blank" rel="noopener">Koşullu Olasılık Örnek Soru-3</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="Te1CSlwKKC8" data-t="Koşullu Olasılık Örnek Soru-3">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=Y-XLUc5hEOk" target="_blank" rel="noopener">Koşullu Olasılık Örnek Soru-4</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="Y-XLUc5hEOk" data-t="Koşullu Olasılık Örnek Soru-4">Burada oynat</button></li></ul><h3>Bağımsız bileşenli sistemler (elektrik devreleri, seri ve paralel)</h3><ul class="vlist"><li><div class="vt"><a href="https://www.youtube.com/watch?v=4udveIN-BD8" target="_blank" rel="noopener">Elektrik Devrelerinde Olasılık Örnek Soru-1</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="4udveIN-BD8" data-t="Elektrik Devrelerinde Olasılık Örnek Soru-1">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=WJGDN9fMLlY" target="_blank" rel="noopener">Elektrik Devrelerinde Olasılık Örnek Soru-2</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="WJGDN9fMLlY" data-t="Elektrik Devrelerinde Olasılık Örnek Soru-2">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=KRTCB_Kgdi8" target="_blank" rel="noopener">Vize ve Finalde Çıkabilecek Sorular-42</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="KRTCB_Kgdi8" data-t="Vize ve Finalde Çıkabilecek Sorular-42">Burada oynat</button></li></ul><h3>Siteden aldığım vize sorularının çözüm videoları (Prova-2 Soru 1, Prova-3 Soru 1)</h3><ul class="vlist"><li><div class="vt"><a href="https://www.youtube.com/watch?v=oOjNFiN02rU" target="_blank" rel="noopener">Olasılık ve İstatistik Vize Sınav Provası-2 Çözümler (1.soru)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="oOjNFiN02rU" data-t="Olasılık ve İstatistik Vize Sınav Provası-2 Çözümler (1.soru)">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=IeUM1MNYv5k" target="_blank" rel="noopener">Olasılık ve İstatistik Vize Sınav Provası-3 Çözümler (1.soru)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="IeUM1MNYv5k" data-t="Olasılık ve İstatistik Vize Sınav Provası-3 Çözümler (1.soru)">Burada oynat</button></li></ul><h3>Derse eşlik eden ders videosu (sunumdaki önerilen video)</h3><ul class="vlist"><li><div class="vt"><a href="https://www.youtube.com/watch?v=19Ql_Q3l0GA" target="_blank" rel="noopener">3. Independence</a><span class="vmeta">MIT OpenCourseWare <span class="lang en">EN, İngilizce</span></span></div><button type="button" class="play" data-id="19Ql_Q3l0GA" data-t="3. Independence">Burada oynat</button></li></ul>
+<div class="ctl"><a class="lnk" target="yt" rel="noopener" href="https://www.youtube.com/watch_videos?video_ids=_TYobV7Paug,Te1CSlwKKC8,Y-XLUc5hEOk,4udveIN-BD8,WJGDN9fMLlY,KRTCB_Kgdi8,oOjNFiN02rU,IeUM1MNYv5k,19Ql_Q3l0GA">Bu haftanın tüm videolarını sırayla oynat</a></div></div>
+</article>
+<article class="item" id="h4-ozet" data-k="53" data-g="4. Hafta · Sayma" data-kind="note">
+<h2>Konular ve formül özeti</h2><p class="sub">4. Hafta · Sayma · 54/73</p>
+
+<div class="note">
+  <h3>Sunumdaki konular</h3>
+  <ul><li>Ayrık tekdüze yasa ile olasılık hesabı</li><li>Temel sayma prensibi</li><li>Permütasyon ve kombinasyon</li><li>Binom olasılıkları, para atma örneği</li><li>Örnek 1.24 (telefon numaraları), 1.27 (CD dizilişi), 1.10 (kart çekme), 1.29 (harf dizilişi)</li><li>Örnek 1.11 ve 1.30 (gruplara bölme), Problem 1.60 (aslar), Problem 1.55 (kaleler)</li><li>Doğum günü problemi</li></ul>
+  <h3>Formül özeti</h3>
+  <ul class="formlist"><li><span class="f1">Temel sayma: r aşama, aşama i için nᵢ seçenek ⇒ toplam n₁·n₂·…·nᵣ</span></li><li><span class="f1">Permütasyon: n! &nbsp;|&nbsp; k'lı sıralama: n!/(n−k)!</span></li><li><span class="f1">Kombinasyon: C(n,k) = n! / (k!(n−k)!)</span></li><li><span class="f1">Bölme (çok terimli): n! / (n₁! n₂! … nᵣ!) &nbsp;|&nbsp; tekrarlı harf dizilişi aynı formül</span></li><li><span class="f1">Binom: P(k yazı, n atış) = C(n,k) pᵏ (1−p)ⁿ⁻ᵏ</span></li></ul>
+</div>
+</article>
+<article class="item" id="q4A1" data-k="54" data-g="4. Hafta · Sayma" data-kind="q">
+<h2>4A1 · Bir kişinin 3 gömleği, 4 pantolonu ve 2 çift…</h2><p class="sub">4. Hafta · Sayma · 55/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">4A1</b><span class="lv">Örnek / temel sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Bir kişinin 3 gömleği, 4 pantolonu ve 2 çift ayakkabısı var. Kaç farklı kombin yapabilir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Temel sayma prensibi: 3·4·2 = <b>24</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q4A2" data-k="55" data-g="4. Hafta · Sayma" data-kind="q">
+<h2>4A2 · Telefon numarası 7 haneli, ilk rakam 0 veya 1…</h2><p class="sub">4. Hafta · Sayma · 56/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">4A2</b><span class="lv">Örnek / temel sorular</span><span class="tag sunum">Sunum: Sunum Hafta 4, Örnek 1.24</span></div>
+  <p class="qtext">Telefon numarası 7 haneli, ilk rakam 0 veya 1 olamaz. Kaç farklı numara üretilebilir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">İlk hane: 8 seçenek (2–9). Diğer 6 hane: 10 seçenek. 8·10⁶ = <b>8.000.000</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q4A3" data-k="56" data-g="4. Hafta · Sayma" data-kind="q">
+<h2>4A3 · Adil bir zar 6 kez atılıyor. Altı atışın…</h2><p class="sub">4. Hafta · Sayma · 57/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">4A3</b><span class="lv">Örnek / temel sorular</span><span class="tag sunum">Sunum: Sunum Hafta 4, zar örneği</span></div>
+  <p class="qtext">Adil bir zar 6 kez atılıyor. Altı atışın hepsinde farklı sayı gelme olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Uygun sonuç: 6! = 720. Toplam: 6⁶ = 46.656. P = 720/46.656 = 5/324 ≈ <b>0,0154</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q4A4" data-k="57" data-g="4. Hafta · Sayma" data-kind="q">
+<h2>4A4 · TATTOO (sunumda İngilizce) ve ANANAS (sunumda…</h2><p class="sub">4. Hafta · Sayma · 58/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">4A4</b><span class="lv">Örnek / temel sorular</span><span class="tag sunum">Sunum: Sunum Hafta 4, Örnek 1.29</span></div>
+  <p class="qtext">TATTOO (sunumda İngilizce) ve ANANAS (sunumda Türkçe) kelimelerinin harfleri yeniden düzenlenirse kaç farklı dizi elde edilir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">TATTOO: T×3, O×2, A×1. 6!/(3!·2!·1!) = 720/12 = <b>60</b>. ANANAS: A×3, N×2, S×1. 6!/(3!·2!·1!) = <b>60</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q4A5" data-k="58" data-g="4. Hafta · Sayma" data-kind="q">
+<h2>4A5 · 52 kartlık desteden geri koymadan 3 kart…</h2><p class="sub">4. Hafta · Sayma · 59/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">4A5</b><span class="lv">Örnek / temel sorular</span><span class="tag sunum">Sunum: Sunum Hafta 4, Örnek 1.10</span></div>
+  <p class="qtext">52 kartlık desteden geri koymadan 3 kart çekiliyor. Üçünün de kupa olmama olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">C(39,3)/C(52,3) = 9139/22100 ≈ <b>0,4135</b>. (Eşdeğer: (39/52)(38/51)(37/50).)</div></details>
+</div>
+</article>
+<article class="item" id="q4A6" data-k="59" data-g="4. Hafta · Sayma" data-kind="q">
+<h2>4A6 · Adil para 5 kez atılıyor. Tam 3 yazı gelme…</h2><p class="sub">4. Hafta · Sayma · 60/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">4A6</b><span class="lv">Örnek / temel sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">Adil para 5 kez atılıyor. Tam 3 yazı gelme olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">C(5,3)·(1/2)⁵ = 10/32 = <b>0,3125</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q4B1" data-k="60" data-g="4. Hafta · Sayma" data-kind="q">
+<h2>4B1 · n₁ klasik, n₂ rock, n₃ Türk sanat müziği…</h2><p class="sub">4. Hafta · Sayma · 61/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">4B1</b><span class="lv">İleri düzey sorular</span><span class="tag sunum">Sunum: Sunum Hafta 4, Örnek 1.27</span></div>
+  <p class="qtext">n₁ klasik, n₂ rock, n₃ Türk sanat müziği CD'si var. Aynı türdeki CD'ler yan yana olacak şekilde kaç farklı dizilim yapılır?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Önce 3 türün blok sırası: 3!. Sonra her blok kendi içinde: n₁! n₂! n₃!. Toplam: <b>3! · n₁! · n₂! · n₃!</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q4B2" data-k="61" data-g="4. Hafta · Sayma" data-kind="q">
+<h2>4B2 · 4 yüksek lisans ve 12 lisans öğrencisinden…</h2><p class="sub">4. Hafta · Sayma · 62/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">4B2</b><span class="lv">İleri düzey sorular</span><span class="tag sunum">Sunum: Sunum Hafta 4, Örnek 1.11 ve 1.30</span></div>
+  <p class="qtext">4 yüksek lisans ve 12 lisans öğrencisinden oluşan sınıf rastgele 4'er kişilik 4 gruba ayrılıyor. Her grupta bir yüksek lisans öğrencisi olma olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Tüm bölmeler: 16!/(4!)⁴. Uygun: yüksek lisanslılar 4! yolla gruplara dağılır, 12 lisanslı 3'erli kalan yerlere 12!/(3!)⁴ yolla. P = [4!·12!/(3!)⁴] / [16!/(4!)⁴] = 24·256 / (16·15·14·13) = 6144/43680 = 64/455 ≈ <b>0,1407</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q4B3" data-k="62" data-g="4. Hafta · Sayma" data-kind="q">
+<h2>4B3 · İyi karıştırılmış 52 kartlık deste 4 oyuncuya…</h2><p class="sub">4. Hafta · Sayma · 63/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">4B3</b><span class="lv">İleri düzey sorular</span><span class="tag sunum">Sunum: Sunum Hafta 4, Problem 1.60</span></div>
+  <p class="qtext">İyi karıştırılmış 52 kartlık deste 4 oyuncuya 13'er kart olarak dağıtılıyor. Her oyuncuya tam bir as gelme olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Tüm dağıtımlar: 52!/(13!)⁴. Uygun: asları oyunculara 4! yolla dağıt, kalan 48 kartı 12'şer: 48!/(12!)⁴. P = 24·13⁴ / (52·51·50·49) = 685.464/6.497.400 ≈ <b>0,1055</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q4B4" data-k="63" data-g="4. Hafta · Sayma" data-kind="q">
+<h2>4B4 · 8x8 satranç tahtasına 8 kale farklı karelere…</h2><p class="sub">4. Hafta · Sayma · 64/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">4B4</b><span class="lv">İleri düzey sorular</span><span class="tag sunum">Sunum: Sunum Hafta 4, Problem 1.55</span></div>
+  <p class="qtext">8x8 satranç tahtasına 8 kale farklı karelere eşit olasılıkla yerleştiriliyor. Kalelerin birbirini tehdit etmeme olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Uygun yerleşim: her satıra bir kale, sütunlar farklı: 8! = 40.320. Tüm yerleşimler: C(64,8) = 4.426.165.368. P = 40.320/4.426.165.368 ≈ <b>9,1·10⁻⁶</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q4B5" data-k="64" data-g="4. Hafta · Sayma" data-kind="q">
+<h2>4B5 · n kişinin hepsinin farklı günde doğma…</h2><p class="sub">4. Hafta · Sayma · 65/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">4B5</b><span class="lv">İleri düzey sorular</span><span class="tag sunum">Sunum: Sunum Hafta 4, doğum günü problemi</span></div>
+  <p class="qtext">n kişinin hepsinin farklı günde doğma olasılığını yazın. n = 23 için en az iki kişinin aynı gün doğma olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">P(hepsi farklı) = 365·364·…·(365−n+1) / 365ⁿ. n = 23 için ≈ 0,493. En az bir ortak doğum günü: 1 − 0,493 ≈ <b>0,507</b>. (n = 30 için ≈ 0,706.)</div></details>
+</div>
+</article>
+<article class="item" id="q4C1" data-k="65" data-g="4. Hafta · Sayma" data-kind="q">
+<h2>4C1 · 12 soruluk çoktan seçmeli sınavın her…</h2><p class="sub">4. Hafta · Sayma · 66/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">4C1</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag site">Siteden: BUders Vize Prova-1, Soru 3 (soru metni sitedeki görselden aktarıldı)</span></div>
+  <p class="qtext">12 soruluk çoktan seçmeli sınavın her sorusunda 5 seçenek var. Geçmek için en az 9 doğru gerekiyor. Hiçbir şey bilmeden rastgele tahmin ediyorsunuz, sorular sırayla çözülüyor.<br>a) Sınavı geçme olasılığı?<br>b) İlk doğru cevabınızın 3. soru olma olasılığı?<br>c) Üçüncü doğru cevabınızın 6. soru olma olasılığı?</p>
+  <p class="srcline">Soru sayfası: <a href="https://www.buders.com/altsayfa/yazili_sinavlari/olasilik_ve_istatistik_vize_prova_1/olasilik_ve_istatistik_vize_prova_1.html" target="_blank" rel="noopener">buders.com/altsayfa/yazili_sinavlari/olasilik_ve_istatistik_vize_prova_1/olasilik_ve_istatistik_vize_prova_1.html</a><br>Sitenin çözüm videosu: <a href="https://youtu.be/Klkl5fHcXEE" target="_blank" rel="noopener">youtu.be/Klkl5fHcXEE</a><br><i>Cevap sitedeki video çözümden değil, benim hesabımdır; videoyla karşılaştır.</i></p>
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">p = 1/5, q = 4/5.<br>a) Σₖ₌₉¹² C(12,k)(1/5)ᵏ(4/5)¹²⁻ᵏ. k=9: 220·(0,2)⁹·(0,8)³ ≈ 5,77·10⁻⁵; k=10: ≈ 4,33·10⁻⁶; k=11: ≈ 1,97·10⁻⁷; k=12: ≈ 4,1·10⁻⁹. Toplam ≈ <b>6,2·10⁻⁵</b>.<br>b) İlk iki yanlış, üçüncü doğru: (0,8)²·0,2 = <b>0,128</b>.<br>c) İlk 5 soruda tam 2 doğru, 6. doğru: C(5,2)(0,2)²(0,8)³·0,2 = 10·0,04·0,512·0,2 = <b>0,04096</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q4C2" data-k="66" data-g="4. Hafta · Sayma" data-kind="q">
+<h2>4C2 · Yazı gelme olasılığı 0,6 olan hileli bir…</h2><p class="sub">4. Hafta · Sayma · 67/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">4C2</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag site">Siteden: BUders Vize Prova-3, Soru 4 (soru metni sitedeki görselden aktarıldı)</span></div>
+  <p class="qtext">Yazı gelme olasılığı 0,6 olan hileli bir madeni para 7 kez havaya atılıyor. Toplam yazı sayısının toplam tura sayısından fazla olma olasılığı nedir?</p>
+  <p class="srcline">Soru sayfası: <a href="https://www.buders.com/altsayfa/yazili_sinavlari/olasilik_ve_istatistik_vize_prova_3/olasilik_ve_istatistik_vize_prova_3.html" target="_blank" rel="noopener">buders.com/altsayfa/yazili_sinavlari/olasilik_ve_istatistik_vize_prova_3/olasilik_ve_istatistik_vize_prova_3.html</a><br>Sitenin çözüm videosu: <a href="https://youtu.be/5Sjzge-Xgsw" target="_blank" rel="noopener">youtu.be/5Sjzge-Xgsw</a><br><i>Cevap sitedeki video çözümden değil, benim hesabımdır; videoyla karşılaştır.</i></p>
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Yazı sayısı Y, Y > 7 − Y ⇒ Y ≥ 4. P = Σₖ₌₄⁷ C(7,k)(0,6)ᵏ(0,4)⁷⁻ᵏ. k=4: 35·0,1296·0,064 = 0,2903; k=5: 21·0,07776·0,16 = 0,2613; k=6: 7·0,046656·0,4 = 0,1306; k=7: 0,0280. Toplam ≈ <b>0,7102</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q4C3" data-k="67" data-g="4. Hafta · Sayma" data-kind="q">
+<h2>4C3 · 8 sağlam ve 4 bozuk olmak üzere 12 pil içeren…</h2><p class="sub">4. Hafta · Sayma · 68/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">4C3</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag site">Siteden: BUders Vize Prova-3, Soru 3 (soru metni sitedeki görselden aktarıldı; beklenen değer sunumlarda yok, sayma kısmı Hafta 4)</span></div>
+  <p class="qtext">8 sağlam ve 4 bozuk olmak üzere 12 pil içeren kutudan rastgele 2 pil seçiliyor. Seçilen bozuk pillerin beklenen sayısı nedir?</p>
+  <p class="srcline">Soru sayfası: <a href="https://www.buders.com/altsayfa/yazili_sinavlari/olasilik_ve_istatistik_vize_prova_3/olasilik_ve_istatistik_vize_prova_3.html" target="_blank" rel="noopener">buders.com/altsayfa/yazili_sinavlari/olasilik_ve_istatistik_vize_prova_3/olasilik_ve_istatistik_vize_prova_3.html</a><br>Sitenin çözüm videosu: <a href="https://youtu.be/rXr0MbgUdHs" target="_blank" rel="noopener">youtu.be/rXr0MbgUdHs</a><br><i>Cevap sitedeki video çözümden değil, benim hesabımdır; videoyla karşılaştır.</i></p>
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Bozuk sayısı B için: P(0) = C(8,2)/C(12,2) = 28/66. P(1) = 8·4/66 = 32/66. P(2) = C(4,2)/66 = 6/66. E[B] = (0·28 + 1·32 + 2·6)/66 = 44/66 = <b>2/3</b>. Kısayol: 2·(4/12) = 2/3.</div></details>
+</div>
+</article>
+<article class="item" id="q4C4" data-k="68" data-g="4. Hafta · Sayma" data-kind="q">
+<h2>4C4 · 10 erkek ve 8 kadından 5 kişilik komite…</h2><p class="sub">4. Hafta · Sayma · 69/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">4C4</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">10 erkek ve 8 kadından 5 kişilik komite rastgele seçiliyor. Komitede en az 2 kadın olma olasılığı nedir?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Toplam C(18,5) = 8568. Hiç kadın yok: C(10,5) = 252. Tam 1 kadın: 8·C(10,4) = 1680. Uygun = 8568 − 252 − 1680 = 6636. P = 6636/8568 = 553/714 ≈ <b>0,7745</b>.</div></details>
+</div>
+</article>
+<article class="item" id="q4C5" data-k="69" data-g="4. Hafta · Sayma" data-kind="q">
+<h2>4C5 · 10 özdeş top 4 farklı kutuya dağıtılıyor. (a)…</h2><p class="sub">4. Hafta · Sayma · 70/73</p>
+
+<div class="q">
+  <div class="qhead"><b class="qno">4C5</b><span class="lv">Vize ve finalde çıkabilecek sorular</span><span class="tag gen">Üretildi</span></div>
+  <p class="qtext">10 özdeş top 4 farklı kutuya dağıtılıyor. (a) Kutular boş kalabilirse kaç yol vardır? (b) Her kutuda en az bir top olması gerekirse kaç yol vardır?</p>
+  
+  <details class="ans"><summary>Cevabı göster</summary><div class="ansbody">Yıldızlar ve çubuklar. (a) C(10+4−1, 4−1) = C(13,3) = <b>286</b>. (b) Önce her kutuya 1 top: kalan 6 top, C(6+3, 3) = C(9,3) = <b>84</b>.</div></details>
+</div>
+</article>
+<article class="item" id="h4-video" data-k="70" data-g="4. Hafta · Sayma" data-kind="video">
+<h2>Videolar (19)</h2><p class="sub">4. Hafta · Sayma · 71/73</p>
+<div class="note vnote"><div class="vid" hidden></div><h3>Temel sayma prensibi, permütasyon, kombinasyon</h3><ul class="vlist"><li><div class="vt"><a href="https://www.youtube.com/watch?v=gIwbGNK02Po" target="_blank" rel="noopener">Saymanın Temel Prensibi</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="gIwbGNK02Po" data-t="Saymanın Temel Prensibi">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=yR6CV-ezd1s" target="_blank" rel="noopener">Permütasyon Nedir?</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="yR6CV-ezd1s" data-t="Permütasyon Nedir?">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=w4sM-6Q1_ls" target="_blank" rel="noopener">Kombinasyon Nedir?</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="w4sM-6Q1_ls" data-t="Kombinasyon Nedir?">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=qZ9DFZd3EI0" target="_blank" rel="noopener">Tekrarlı Permütasyon</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="qZ9DFZd3EI0" data-t="Tekrarlı Permütasyon">Burada oynat</button></li></ul><h3>Sayma ve olasılık soruları (iskambil kartları, kombinasyon çözümlü sorular)</h3><ul class="vlist"><li><div class="vt"><a href="https://www.youtube.com/watch?v=Gcs0uliJJCc" target="_blank" rel="noopener">İskambil Kartlarında Olasılık Soruları-1</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="Gcs0uliJJCc" data-t="İskambil Kartlarında Olasılık Soruları-1">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=q9XJoi_BYE0" target="_blank" rel="noopener">İskambil Kartlarında Olasılık Soruları-2</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="q9XJoi_BYE0" data-t="İskambil Kartlarında Olasılık Soruları-2">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=y1ysn69RTdo" target="_blank" rel="noopener">Kombinasyon Çözümlü Örnek Sorular (1. Bölüm)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="y1ysn69RTdo" data-t="Kombinasyon Çözümlü Örnek Sorular (1. Bölüm)">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=nWo48V-XECk" target="_blank" rel="noopener">Kombinasyon İçeren Olasılık Soruları</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="nWo48V-XECk" data-t="Kombinasyon İçeren Olasılık Soruları">Burada oynat</button></li></ul><h3>İleri düzey permütasyon-kombinasyon ve özdeş nesne dağılımı</h3><ul class="vlist"><li><div class="vt"><a href="https://www.youtube.com/watch?v=7pJIvOIht4g" target="_blank" rel="noopener">İleri Düzey Permütasyon-Kombinasyon Soruları-1</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="7pJIvOIht4g" data-t="İleri Düzey Permütasyon-Kombinasyon Soruları-1">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=z-aRmgo2Tpk" target="_blank" rel="noopener">İleri Düzey Permütasyon-Kombinasyon Soruları-2</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="z-aRmgo2Tpk" data-t="İleri Düzey Permütasyon-Kombinasyon Soruları-2">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=AbP3vwmmV1g" target="_blank" rel="noopener">Saymanın Temel Prensibinde Dağılım</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="AbP3vwmmV1g" data-t="Saymanın Temel Prensibinde Dağılım">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=l_s4I5luf3E" target="_blank" rel="noopener">Özdeş Nesnelerin Dağılımı Örnek Soru-1</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="l_s4I5luf3E" data-t="Özdeş Nesnelerin Dağılımı Örnek Soru-1">Burada oynat</button></li></ul><h3>Binom olasılıkları ve sınav tipi sorular</h3><ul class="vlist"><li><div class="vt"><a href="https://www.youtube.com/watch?v=bI76mNqsce4" target="_blank" rel="noopener">Vize ve Finalde Çıkabilecek Sorular-19</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="bI76mNqsce4" data-t="Vize ve Finalde Çıkabilecek Sorular-19">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=2_aKSHpTlzc" target="_blank" rel="noopener">Vize ve Finalde Çıkabilecek Sorular-11</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="2_aKSHpTlzc" data-t="Vize ve Finalde Çıkabilecek Sorular-11">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=Klkl5fHcXEE" target="_blank" rel="noopener">Olasılık ve İstatistik Vize Sınav Provası-1 Çözümler (3.soru)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="Klkl5fHcXEE" data-t="Olasılık ve İstatistik Vize Sınav Provası-1 Çözümler (3.soru)">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=5Sjzge-Xgsw" target="_blank" rel="noopener">Olasılık ve İstatistik Vize Sınav Provası-3 Çözümler (4.soru)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div><button type="button" class="play" data-id="5Sjzge-Xgsw" data-t="Olasılık ve İstatistik Vize Sınav Provası-3 Çözümler (4.soru)">Burada oynat</button></li></ul><h3>İngilizce sayma ve olasılık soruları (EN)</h3><ul class="vlist"><li><div class="vt"><a href="https://www.youtube.com/watch?v=wZ2tE1_df5E" target="_blank" rel="noopener">Sayma ve Olasılık İngilizce Ornek Soru-1 (Counting and Probability)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang en">EN, İngilizce</span></span></div><button type="button" class="play" data-id="wZ2tE1_df5E" data-t="Sayma ve Olasılık İngilizce Ornek Soru-1 (Counting and Probability)">Burada oynat</button></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=JxRWS5lhaKg" target="_blank" rel="noopener">Sayma ve Olasılık İngilizce Ornek Soru-2 (Counting and Probability)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang en">EN, İngilizce</span></span></div><button type="button" class="play" data-id="JxRWS5lhaKg" data-t="Sayma ve Olasılık İngilizce Ornek Soru-2 (Counting and Probability)">Burada oynat</button></li></ul><h3>Derse eşlik eden ders videosu (sunumdaki önerilen video)</h3><ul class="vlist"><li><div class="vt"><a href="https://www.youtube.com/watch?v=6oV3pKLgW2I" target="_blank" rel="noopener">4. Counting</a><span class="vmeta">MIT OpenCourseWare <span class="lang en">EN, İngilizce</span></span></div><button type="button" class="play" data-id="6oV3pKLgW2I" data-t="4. Counting">Burada oynat</button></li></ul>
+<div class="ctl"><a class="lnk" target="yt" rel="noopener" href="https://www.youtube.com/watch_videos?video_ids=gIwbGNK02Po,yR6CV-ezd1s,w4sM-6Q1_ls,qZ9DFZd3EI0,Gcs0uliJJCc,q9XJoi_BYE0,y1ysn69RTdo,nWo48V-XECk,7pJIvOIht4g,z-aRmgo2Tpk,AbP3vwmmV1g,l_s4I5luf3E,bI76mNqsce4,2_aKSHpTlzc,Klkl5fHcXEE,5Sjzge-Xgsw,wZ2tE1_df5E,JxRWS5lhaKg,6oV3pKLgW2I">Bu haftanın tüm videolarını sırayla oynat</a></div></div>
+</article>
+<article class="item" id="videolar" data-k="71" data-g="Kaynaklar" data-kind="note">
+<h2>Video listesi (hepsi)</h2><p class="sub">Kaynaklar · 72/73</p>
+<div class="note"><p>Tüm linkler BUders sayfalarının kendi HTML'inden ve sunumlardaki video linklerinden alındı. Her linkin YouTube'da var olduğu, YouTube'un oEmbed servisiyle başlık ve kanal adı alınarak doğrulandı. Başlık ve kanal adları YouTube'dan geldiği gibidir. Video içeriğini izleyip kontrol etmedim.</p>
+<h3>Hafta 1: Olasılık Modelleri ve Aksiyomlar</h3><h4>Olasılık temelleri, örneklem uzayı, olaylar</h4><ul class="vlist plain"><li><div class="vt"><a href="https://www.youtube.com/watch?v=hhW5s3NFYvg" target="_blank" rel="noopener">Olasılık Nedir?</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=9SafeYziRCA" target="_blank" rel="noopener">Para Atmada Olasılık Durumları</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=Gyku3zDgcSM" target="_blank" rel="noopener">Zar Atmada Olasılık Durumları</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li></ul><h4>Tekdüze yasa ile hesap (top çekme, çözümlü sorular)</h4><ul class="vlist plain"><li><div class="vt"><a href="https://www.youtube.com/watch?v=rI25-oQO7a8" target="_blank" rel="noopener">Torbadan Top Çekme Sorularında Olasılık Durumları</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=ZcgTSPDO_1s" target="_blank" rel="noopener">Olasılık Çözümlü Örnek Sorular (1. Bölüm)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=wtfXQxAiw_k" target="_blank" rel="noopener">Olasılık Çözümlü Örnek Sorular (2. Bölüm)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li></ul><h4>Derse eşlik eden ders videosu (sunumdaki önerilen video)</h4><ul class="vlist plain"><li><div class="vt"><a href="https://www.youtube.com/watch?v=j9WZyLZCBzs" target="_blank" rel="noopener">1. Probability Models and Axioms</a><span class="vmeta">MIT OpenCourseWare <span class="lang en">EN, İngilizce</span></span></div></li></ul>
+<h3>Hafta 2: Koşullandırma ve Bayes Kuralı</h3><h4>Koşullu olasılık</h4><ul class="vlist plain"><li><div class="vt"><a href="https://www.youtube.com/watch?v=WOuCeDE2n-w" target="_blank" rel="noopener">Koşullu Olasılık  (Conditional Probability)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=0sbgLZ0CVR4" target="_blank" rel="noopener">Koşullu Olasılık Örnek Soru-1</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=m0fjoToXzT0" target="_blank" rel="noopener">Koşullu Olasılık Örnek Soru-2</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=ZHiussUmQlE" target="_blank" rel="noopener">Vize ve Finalde Çıkabilecek Sorular-8</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li></ul><h4>Toplam olasılık ve Bayes teoremi</h4><ul class="vlist plain"><li><div class="vt"><a href="https://www.youtube.com/watch?v=3EHauU__ldg" target="_blank" rel="noopener">Bayes Teoremi (Bayes' Theorem)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=pRsroB7rvx8" target="_blank" rel="noopener">Bayes Teoremi Örnek Soru-1</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=HvpMoMGBi94" target="_blank" rel="noopener">Bayes Teoremi Örnek Soru-2</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=MkVTHY4ye_Y" target="_blank" rel="noopener">Vize ve Finalde Çıkabilecek Sorular-15</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li></ul><h4>Siteden aldığım vize sorularının çözüm videoları (Soru 1 ve Soru 2)</h4><ul class="vlist plain"><li><div class="vt"><a href="https://www.youtube.com/watch?v=VQOeZf1y-wo" target="_blank" rel="noopener">Olasılık ve İstatistik Vize Sınav Provası-1 Çözümler (1.soru)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=PPqONF48Ku0" target="_blank" rel="noopener">Olasılık ve İstatistik Vize Sınav Provası-2 Çözümler (2.soru)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li></ul><h4>Derse eşlik eden ders videosu (sunumdaki önerilen video)</h4><ul class="vlist plain"><li><div class="vt"><a href="https://www.youtube.com/watch?v=TluTv5V0RmE" target="_blank" rel="noopener">2. Conditioning and Bayes' Rule</a><span class="vmeta">MIT OpenCourseWare <span class="lang en">EN, İngilizce</span></span></div></li></ul>
+<h3>Hafta 3: Bağımsızlık</h3><h4>Koşullu olasılık ve bağımsız olaylar</h4><ul class="vlist plain"><li><div class="vt"><a href="https://www.youtube.com/watch?v=_TYobV7Paug" target="_blank" rel="noopener">Vize ve Finalde Çıkabilecek Sorular-39</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=Te1CSlwKKC8" target="_blank" rel="noopener">Koşullu Olasılık Örnek Soru-3</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=Y-XLUc5hEOk" target="_blank" rel="noopener">Koşullu Olasılık Örnek Soru-4</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li></ul><h4>Bağımsız bileşenli sistemler (elektrik devreleri, seri ve paralel)</h4><ul class="vlist plain"><li><div class="vt"><a href="https://www.youtube.com/watch?v=4udveIN-BD8" target="_blank" rel="noopener">Elektrik Devrelerinde Olasılık Örnek Soru-1</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=WJGDN9fMLlY" target="_blank" rel="noopener">Elektrik Devrelerinde Olasılık Örnek Soru-2</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=KRTCB_Kgdi8" target="_blank" rel="noopener">Vize ve Finalde Çıkabilecek Sorular-42</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li></ul><h4>Siteden aldığım vize sorularının çözüm videoları (Prova-2 Soru 1, Prova-3 Soru 1)</h4><ul class="vlist plain"><li><div class="vt"><a href="https://www.youtube.com/watch?v=oOjNFiN02rU" target="_blank" rel="noopener">Olasılık ve İstatistik Vize Sınav Provası-2 Çözümler (1.soru)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=IeUM1MNYv5k" target="_blank" rel="noopener">Olasılık ve İstatistik Vize Sınav Provası-3 Çözümler (1.soru)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li></ul><h4>Derse eşlik eden ders videosu (sunumdaki önerilen video)</h4><ul class="vlist plain"><li><div class="vt"><a href="https://www.youtube.com/watch?v=19Ql_Q3l0GA" target="_blank" rel="noopener">3. Independence</a><span class="vmeta">MIT OpenCourseWare <span class="lang en">EN, İngilizce</span></span></div></li></ul>
+<h3>Hafta 4: Sayma</h3><h4>Temel sayma prensibi, permütasyon, kombinasyon</h4><ul class="vlist plain"><li><div class="vt"><a href="https://www.youtube.com/watch?v=gIwbGNK02Po" target="_blank" rel="noopener">Saymanın Temel Prensibi</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=yR6CV-ezd1s" target="_blank" rel="noopener">Permütasyon Nedir?</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=w4sM-6Q1_ls" target="_blank" rel="noopener">Kombinasyon Nedir?</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=qZ9DFZd3EI0" target="_blank" rel="noopener">Tekrarlı Permütasyon</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li></ul><h4>Sayma ve olasılık soruları (iskambil kartları, kombinasyon çözümlü sorular)</h4><ul class="vlist plain"><li><div class="vt"><a href="https://www.youtube.com/watch?v=Gcs0uliJJCc" target="_blank" rel="noopener">İskambil Kartlarında Olasılık Soruları-1</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=q9XJoi_BYE0" target="_blank" rel="noopener">İskambil Kartlarında Olasılık Soruları-2</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=y1ysn69RTdo" target="_blank" rel="noopener">Kombinasyon Çözümlü Örnek Sorular (1. Bölüm)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=nWo48V-XECk" target="_blank" rel="noopener">Kombinasyon İçeren Olasılık Soruları</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li></ul><h4>İleri düzey permütasyon-kombinasyon ve özdeş nesne dağılımı</h4><ul class="vlist plain"><li><div class="vt"><a href="https://www.youtube.com/watch?v=7pJIvOIht4g" target="_blank" rel="noopener">İleri Düzey Permütasyon-Kombinasyon Soruları-1</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=z-aRmgo2Tpk" target="_blank" rel="noopener">İleri Düzey Permütasyon-Kombinasyon Soruları-2</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=AbP3vwmmV1g" target="_blank" rel="noopener">Saymanın Temel Prensibinde Dağılım</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=l_s4I5luf3E" target="_blank" rel="noopener">Özdeş Nesnelerin Dağılımı Örnek Soru-1</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li></ul><h4>Binom olasılıkları ve sınav tipi sorular</h4><ul class="vlist plain"><li><div class="vt"><a href="https://www.youtube.com/watch?v=bI76mNqsce4" target="_blank" rel="noopener">Vize ve Finalde Çıkabilecek Sorular-19</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=2_aKSHpTlzc" target="_blank" rel="noopener">Vize ve Finalde Çıkabilecek Sorular-11</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=Klkl5fHcXEE" target="_blank" rel="noopener">Olasılık ve İstatistik Vize Sınav Provası-1 Çözümler (3.soru)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=5Sjzge-Xgsw" target="_blank" rel="noopener">Olasılık ve İstatistik Vize Sınav Provası-3 Çözümler (4.soru)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang tr">TR</span></span></div></li></ul><h4>İngilizce sayma ve olasılık soruları (EN)</h4><ul class="vlist plain"><li><div class="vt"><a href="https://www.youtube.com/watch?v=wZ2tE1_df5E" target="_blank" rel="noopener">Sayma ve Olasılık İngilizce Ornek Soru-1 (Counting and Probability)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang en">EN, İngilizce</span></span></div></li><li><div class="vt"><a href="https://www.youtube.com/watch?v=JxRWS5lhaKg" target="_blank" rel="noopener">Sayma ve Olasılık İngilizce Ornek Soru-2 (Counting and Probability)</a><span class="vmeta">BUders Boğaziçiliden Özel Ders <span class="lang en">EN, İngilizce</span></span></div></li></ul><h4>Derse eşlik eden ders videosu (sunumdaki önerilen video)</h4><ul class="vlist plain"><li><div class="vt"><a href="https://www.youtube.com/watch?v=6oV3pKLgW2I" target="_blank" rel="noopener">4. Counting</a><span class="vmeta">MIT OpenCourseWare <span class="lang en">EN, İngilizce</span></span></div></li></ul>
+<p>Boşluk: Monty Hall, mahkum ikilemi, kralın kardeşleri, doğum günü ve kale problemi için tek tek eşleşen doğrulanmış Türkçe video bulamadım. Bu konularda ilgili haftanın MIT dersi (EN) en yakın kaynak.</p></div>
+</article>
+<article class="item" id="kaynak" data-k="72" data-g="Kaynaklar" data-kind="note">
+<h2>Kaynak notları ve erişilemeyenler</h2><p class="sub">Kaynaklar · 73/73</p>
+<div class="note"><ul>
+    <li>"budersin" sitesi, BUders (Kemal Duran'ın "BUders Boğaziçiliden Özel Ders" markası) sitesi buders.com olarak bulundu. Olasılık sayfaları: <a href="https://www.buders.com/altsayfa/olasilik_istatistik_videolari.html" target="_blank" rel="noopener">Olasılık ve İstatistik videoları</a>, <a href="https://www.buders.com/altsayfa/olasilik_ve_istatistik_vize_ve_final_ornekleri.html" target="_blank" rel="noopener">Vize ve final provaları</a>, <a href="https://www.buders.com/altsayfa/vize_ve_finalde_cikabilecek_sorular_olasilik_istatistik.html" target="_blank" rel="noopener">Vize ve finalde çıkabilecek sorular (59 video)</a>.</li>
+    <li>Sitedeki "Vize ve Finalde Çıkabilecek Sorular", "Koşullu Olasılık Örnek Soru", "İleri Düzey Permütasyon-Kombinasyon" gibi bölümler yalnızca video olarak duruyor. Soru metinleri metin olarak alınamadı. Bu sorular için video linki verdim, soru metni üretmedim.</li>
+    <li>Quiz sayfaları (ör. Bayes Teoremi Quiz) soruları sayfa kaynağında göstermiyor, quiz oyunu olarak çalışıyor. İçeriği okunamadı.</li>
+    <li>İlk denemede www.budersin.com ve budersin.com adresleri bulunamadı. Bu adlarda site yok, doğru adres buders.com.</li>
+    <li>Sunumlardaki formül ve şekil görselleri metin olarak okunamadı (olaylar, ağaç diyagramları). Bu yüzden Örnek 1.17 ve Örnek 1.21 için olayları kendim kurdum, etiketi "türü" olarak koydum. "Kralın kardeşleri" cevabı kullandığım yoruma göre 2/3. Hocanın çözümü farklı çıkarsa onunkini esas al.</li>
+    <li>Cevaplar elle hesaplandı. Ders kitabıyla ya da çözüm videosuyla bir kez karşılaştırman iyi olur.</li>
+  </ul></div>
+</article>
+</main><aside id="s"><details data-g="-1"><summary>Genel <small class="gs">(0/2)</small></summary><a class="it" href="#ozet" data-k="0"><span class="c"></span><span class="lb">Ders özeti ve nasıl kullanılır</span></a><a class="it" href="#tahmin" data-k="1"><span class="c"></span><span class="lb">Vize ve final tahmini</span></a></details><details data-g="0"><summary>1. Hafta · Olasılık Modelleri ve Aksiyomlar <small class="gs">(0/17)</small></summary><a class="it" href="#h1-ozet" data-k="2"><span class="c"></span><span class="lb">Konular ve formül özeti</span></a><a class="it" href="#q1A1" data-k="3"><span class="c"></span><span class="lb">1A1 · Adil bir zar bir kez atılıyor. Örneklem…</span></a><a class="it" href="#q1A2" data-k="4"><span class="c"></span><span class="lb">1A2 · Adil bir para 3 kez atılıyor. Örneklem…</span></a><a class="it" href="#q1A3" data-k="5"><span class="c"></span><span class="lb">1A3 · Bir sınıftaki öğrencilerin %60'ı dahi, %70'i…</span></a><a class="it" href="#q1A4" data-k="6"><span class="c"></span><span class="lb">1A4 · Altı yüzlü bir zarda çift yüzlerin gelme…</span></a><a class="it" href="#q1A5" data-k="7"><span class="c"></span><span class="lb">1A5 · Bir listenin "örneklem uzayı" sayılması için…</span></a><a class="it" href="#q1A6" data-k="8"><span class="c"></span><span class="lb">1A6 · P(A) = 0,4, P(B) = 0,5, P(A∩B) = 0,2 ise…</span></a><a class="it" href="#q1B1" data-k="9"><span class="c"></span><span class="lb">1B1 · Leyla ile Mecnun buluşuyor. Her ikisi de 0…</span></a><a class="it" href="#q1B2" data-k="10"><span class="c"></span><span class="lb">1B2 · Önceki soruda bekleme süresi w saat (0 &lt; w &lt;…</span></a><a class="it" href="#q1B3" data-k="11"><span class="c"></span><span class="lb">1B3 · Yazı gelene kadar adil para atılıyor (sonsuz…</span></a><a class="it" href="#q1B4" data-k="12"><span class="c"></span><span class="lb">1B4 · P(A) = P(B) = P(C) = 0,4, ikili kesişimlerin…</span></a><a class="it" href="#q1C1" data-k="13"><span class="c"></span><span class="lb">1C1 · Üç aksiyomdan yola çıkarak P(∅) = 0 ve P(Aᶜ)…</span></a><a class="it" href="#q1C2" data-k="14"><span class="c"></span><span class="lb">1C2 · P(A∪B) = P(A) + P(B) − P(A∩B) eşitliğini…</span></a><a class="it" href="#q1C3" data-k="15"><span class="c"></span><span class="lb">1C3 · A ⊂ B ise P(A) ≤ P(B) olduğunu gösterin.</span></a><a class="it" href="#q1C4" data-k="16"><span class="c"></span><span class="lb">1C4 · Bir sınıfta öğrencilerin %70'i matematikten,…</span></a><a class="it" href="#q1C5" data-k="17"><span class="c"></span><span class="lb">1C5 · Altı yüzlü hileli bir zarda P(k) = c·k oluyor…</span></a><a class="it" href="#h1-video" data-k="18"><span class="c"></span><span class="lb">Videolar (7)</span></a></details><details data-g="1"><summary>2. Hafta · Koşullandırma ve Bayes Kuralı <small class="gs">(0/17)</small></summary><a class="it" href="#h2-ozet" data-k="19"><span class="c"></span><span class="lb">Konular ve formül özeti</span></a><a class="it" href="#q2A1" data-k="20"><span class="c"></span><span class="lb">2A1 · Adil zar atılıyor. 1 gelme olasılığı nedir?…</span></a><a class="it" href="#q2A2" data-k="21"><span class="c"></span><span class="lb">2A2 · Adil zar art arda iki kez atılıyor. İlk…</span></a><a class="it" href="#q2A3" data-k="22"><span class="c"></span><span class="lb">2A3 · Bir torbada 5 kırmızı, 3 mavi top var. Geri…</span></a><a class="it" href="#q2A4" data-k="23"><span class="c"></span><span class="lb">2A4 · Kutu A'da 3 beyaz, 2 siyah; Kutu B'de 1…</span></a><a class="it" href="#q2A5" data-k="24"><span class="c"></span><span class="lb">2A5 · Önceki soruda çekilen top beyaz çıktı. Topun…</span></a><a class="it" href="#q2A6" data-k="25"><span class="c"></span><span class="lb">2A6 · P(A) = 0,5, P(B) = 0,4, P(A∩B) = 0,2 ise…</span></a><a class="it" href="#q2B1" data-k="26"><span class="c"></span><span class="lb">2B1 · Satranç turnuvasında rakiplerin yarısına…</span></a><a class="it" href="#q2B2" data-k="27"><span class="c"></span><span class="lb">2B2 · Üç kapıdan birinin arkasında ödül var. 1.…</span></a><a class="it" href="#q2B3" data-k="28"><span class="c"></span><span class="lb">2B3 · Bir hastalık nüfusun %1'inde görülüyor.…</span></a><a class="it" href="#q2B4" data-k="29"><span class="c"></span><span class="lb">2B4 · Gelen e-postaların %30'u spam. "kampanya"…</span></a><a class="it" href="#q2C1" data-k="30"><span class="c"></span><span class="lb">2C1 · Bir uzmandan ürün tasarımlarını "başarılı"…</span><span class="d">Siteden</span></a><a class="it" href="#q2C2" data-k="31"><span class="c"></span><span class="lb">2C2 · Bir fabrikanın ürünleri iki makineden…</span><span class="d">Siteden</span></a><a class="it" href="#q2C3" data-k="32"><span class="c"></span><span class="lb">2C3 · Çarpma kuralını kullanarak 52 kartlık…</span></a><a class="it" href="#q2C4" data-k="33"><span class="c"></span><span class="lb">2C4 · P(A|B) > P(A) ise P(B|A) > P(B) olduğunu…</span></a><a class="it" href="#q2C5" data-k="34"><span class="c"></span><span class="lb">2C5 · Önceki tıbbi test sorusunda (yaygınlık %1,…</span></a><a class="it" href="#h2-video" data-k="35"><span class="c"></span><span class="lb">Videolar (11)</span></a></details><details data-g="2"><summary>3. Hafta · Bağımsızlık <small class="gs">(0/17)</small></summary><a class="it" href="#h3-ozet" data-k="36"><span class="c"></span><span class="lb">Konular ve formül özeti</span></a><a class="it" href="#q3A1" data-k="37"><span class="c"></span><span class="lb">3A1 · A ve B bağımsız, P(A) = 0,3, P(B) = 0,5.…</span></a><a class="it" href="#q3A2" data-k="38"><span class="c"></span><span class="lb">3A2 · İki adil para atılıyor. A: ilk para yazı, B:…</span></a><a class="it" href="#q3A3" data-k="39"><span class="c"></span><span class="lb">3A3 · Adil 4 yüzlü zar iki kez atılıyor, 16 sonuç…</span></a><a class="it" href="#q3A4" data-k="40"><span class="c"></span><span class="lb">3A4 · P(A) = 0,3 ve P(B) = 0,4 olan A, B ayrık…</span></a><a class="it" href="#q3A5" data-k="41"><span class="c"></span><span class="lb">3A5 · Yazı gelme olasılığı 0,6 olan hileli para 4…</span></a><a class="it" href="#q3A6" data-k="42"><span class="c"></span><span class="lb">3A6 · Bir devrede iki bileşen paralel bağlı, her…</span></a><a class="it" href="#q3B1" data-k="43"><span class="c"></span><span class="lb">3B1 · Avcının iki köpeği bağımsız olarak p…</span></a><a class="it" href="#q3B2" data-k="44"><span class="c"></span><span class="lb">3B2 · Geleneksel kraliyet ailelerinde erkek çocuk,…</span></a><a class="it" href="#q3B3" data-k="45"><span class="c"></span><span class="lb">3B3 · Üç mahkumdan ikisi serbest bırakılacak.…</span></a><a class="it" href="#q3B4" data-k="46"><span class="c"></span><span class="lb">3B4 · İki paradan biri adil, diğeri yazı olasılığı…</span></a><a class="it" href="#q3B5" data-k="47"><span class="c"></span><span class="lb">3B5 · İki adil zar bağımsız atılıyor. A: ilk zar…</span></a><a class="it" href="#q3C1" data-k="48"><span class="c"></span><span class="lb">3C1 · Bir makine üç bileşenden oluşuyor.…</span><span class="d">Siteden</span></a><a class="it" href="#q3C2" data-k="49"><span class="c"></span><span class="lb">3C2 · Çiftler üzerinde yapılan ankete göre…</span><span class="d">Siteden</span></a><a class="it" href="#q3C3" data-k="50"><span class="c"></span><span class="lb">3C3 · A ve B bağımsız ise A ile Bᶜ nin de bağımsız…</span></a><a class="it" href="#q3C4" data-k="51"><span class="c"></span><span class="lb">3C4 · Bir güvenlik sisteminde 3 bağımsız alarm var.…</span></a><a class="it" href="#h3-video" data-k="52"><span class="c"></span><span class="lb">Videolar (9)</span></a></details><details data-g="3"><summary>4. Hafta · Sayma <small class="gs">(0/18)</small></summary><a class="it" href="#h4-ozet" data-k="53"><span class="c"></span><span class="lb">Konular ve formül özeti</span></a><a class="it" href="#q4A1" data-k="54"><span class="c"></span><span class="lb">4A1 · Bir kişinin 3 gömleği, 4 pantolonu ve 2 çift…</span></a><a class="it" href="#q4A2" data-k="55"><span class="c"></span><span class="lb">4A2 · Telefon numarası 7 haneli, ilk rakam 0 veya 1…</span></a><a class="it" href="#q4A3" data-k="56"><span class="c"></span><span class="lb">4A3 · Adil bir zar 6 kez atılıyor. Altı atışın…</span></a><a class="it" href="#q4A4" data-k="57"><span class="c"></span><span class="lb">4A4 · TATTOO (sunumda İngilizce) ve ANANAS (sunumda…</span></a><a class="it" href="#q4A5" data-k="58"><span class="c"></span><span class="lb">4A5 · 52 kartlık desteden geri koymadan 3 kart…</span></a><a class="it" href="#q4A6" data-k="59"><span class="c"></span><span class="lb">4A6 · Adil para 5 kez atılıyor. Tam 3 yazı gelme…</span></a><a class="it" href="#q4B1" data-k="60"><span class="c"></span><span class="lb">4B1 · n₁ klasik, n₂ rock, n₃ Türk sanat müziği…</span></a><a class="it" href="#q4B2" data-k="61"><span class="c"></span><span class="lb">4B2 · 4 yüksek lisans ve 12 lisans öğrencisinden…</span></a><a class="it" href="#q4B3" data-k="62"><span class="c"></span><span class="lb">4B3 · İyi karıştırılmış 52 kartlık deste 4 oyuncuya…</span></a><a class="it" href="#q4B4" data-k="63"><span class="c"></span><span class="lb">4B4 · 8x8 satranç tahtasına 8 kale farklı karelere…</span></a><a class="it" href="#q4B5" data-k="64"><span class="c"></span><span class="lb">4B5 · n kişinin hepsinin farklı günde doğma…</span></a><a class="it" href="#q4C1" data-k="65"><span class="c"></span><span class="lb">4C1 · 12 soruluk çoktan seçmeli sınavın her…</span><span class="d">Siteden</span></a><a class="it" href="#q4C2" data-k="66"><span class="c"></span><span class="lb">4C2 · Yazı gelme olasılığı 0,6 olan hileli bir…</span><span class="d">Siteden</span></a><a class="it" href="#q4C3" data-k="67"><span class="c"></span><span class="lb">4C3 · 8 sağlam ve 4 bozuk olmak üzere 12 pil içeren…</span><span class="d">Siteden</span></a><a class="it" href="#q4C4" data-k="68"><span class="c"></span><span class="lb">4C4 · 10 erkek ve 8 kadından 5 kişilik komite…</span></a><a class="it" href="#q4C5" data-k="69"><span class="c"></span><span class="lb">4C5 · 10 özdeş top 4 farklı kutuya dağıtılıyor. (a)…</span></a><a class="it" href="#h4-video" data-k="70"><span class="c"></span><span class="lb">Videolar (19)</span></a></details><details data-g="-2"><summary>Kaynaklar <small class="gs">(0/2)</small></summary><a class="it" href="#videolar" data-k="71"><span class="c"></span><span class="lb">Video listesi (hepsi)</span></a><a class="it" href="#kaynak" data-k="72"><span class="c"></span><span class="lb">Kaynak notları ve erişilemeyenler</span></a></details></aside></div>
+<script>
+(function(){
+var $=function(id){return document.getElementById(id)};
+var arts=[].slice.call(document.querySelectorAll('article.item'));
+var its=[].slice.call(document.querySelectorAll('#s a.it'));
+var gs=[].slice.call(document.querySelectorAll('#s details'));
+var total=arts.length,cur=0,done={};
+try{done=JSON.parse(localStorage.getItem('m271d')||'{}');cur=Math.min(+(localStorage.getItem('m271c')||0),total-1);}catch(e){}
+document.documentElement.classList.add('js');
+var hash=(location.hash||'').slice(1);
+if(hash){arts.forEach(function(a,i){if(a.id===hash)cur=i;});}
+function save(){try{localStorage.setItem('m271d',JSON.stringify(done));localStorage.setItem('m271c',cur);}catch(e){}}
+function ctl(){
+  var c=$('ctl');if(c)c.remove();
+  c=document.createElement('div');c.className='ctl';c.id='ctl';
+  var a=arts[cur],hasAns=!!a.querySelector('details.ans');
+  c.innerHTML='<button type="button" id="pv">Önceki</button><button type="button" class="p" id="nx">'+(done[a.id]?'Sonraki':'Bitti, sonrakine geç')+'</button>'+(hasAns?'<button type="button" id="ta">Cevabı aç/kapat</button>':'');
+  a.appendChild(c);
+  $('pv').onclick=function(){go(cur-1)};
+  $('nx').onclick=function(){done[a.id]=1;go(cur+1)};
+  if(hasAns)$('ta').onclick=function(){var d=a.querySelector('details.ans');d.open=!d.open};
+}
+function go(i,keepHash){
+  cur=Math.max(0,Math.min(total-1,i));save();draw();
+  if(!keepHash){try{history.replaceState(null,'','#'+arts[cur].id)}catch(e){}}
+  window.scrollTo({top:0});
+}
+function draw(){
+  arts.forEach(function(a,i){a.hidden=(i!==cur);});
+  var player=document.querySelector('.vid');
+  arts.forEach(function(a){var v=a.querySelector('.vid');if(v&&a!==arts[cur]){v.hidden=true;v.innerHTML='';}});
+  ctl();
+  var g=arts[cur].querySelector('p.sub');
+  var nd=0;
+  its.forEach(function(b){var k=+b.dataset.k;var d=!!done[arts[k].id];b.querySelector('.c').textContent=d?'\u2713':'';b.classList.toggle('on',k===cur);if(d)nd++;});
+  gs.forEach(function(d){var l=d.querySelectorAll('a.it'),n=0;[].forEach.call(l,function(b){if(done[arts[+b.dataset.k].id])n++;});d.querySelector('.gs').textContent='('+n+'/'+l.length+')';
+    var has=!!d.querySelector('a.it.on');if(has)d.open=true;});
+  $('pg').textContent=nd+' / '+total+' tamamlandı';
+  $('bi').style.width=(100*nd/total)+'%';
+}
+its.forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();go(+b.dataset.k);});});
+document.querySelectorAll('button.play').forEach(function(b){b.addEventListener('click',function(){
+  var box=b.closest('article').querySelector('.vid');
+  box.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+b.dataset.id+'?rel=0&modestbranding=1&playsinline=1&autoplay=1" title="'+b.dataset.t+'" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+  box.hidden=false;box.scrollIntoView({block:'center',behavior:'smooth'});
+});});
+var oa=$('openall'),ca=$('closeall');
+if(oa)oa.onclick=function(){document.querySelectorAll('details.ans').forEach(function(d){d.open=true;});};
+if(ca)ca.onclick=function(){document.querySelectorAll('details.ans').forEach(function(d){d.open=false;});};
+/* arama */
+var nm=function(t){return t.toLocaleLowerCase('tr').replace(/\u0131/g,'i').normalize('NFD').replace(/[\u0300-\u036f]/g,'');};
+var idx=arts.map(function(a){return nm(a.textContent);});
+var sr=[],hl=0,q=$('q'),sl=$('sl');
+function sc(){sl.classList.remove('on');hl=0;}
+function sh(){[].forEach.call(sl.querySelectorAll('div'),function(d,i){d.classList.toggle('h',i===hl);});var d=sl.children[hl];if(d&&d.scrollIntoView)d.scrollIntoView({block:'nearest'});}
+function sf(){var w=nm(q.value).split(/\s+/).filter(Boolean);if(!w.length){sc();return;}
+  sr=[];for(var k=0;k<arts.length&&sr.length<10;k++){if(w.every(function(x){return idx[k].indexOf(x)>-1;}))sr.push(k);}
+  hl=0;
+  sl.innerHTML=sr.length?sr.map(function(k){var h=arts[k].querySelector('h2').textContent;return '<div data-k="'+k+'">'+h.replace(/</g,'&lt;')+'<small>'+arts[k].dataset.g+'</small></div>';}).join(''):'<div class="e">Sonuç yok</div>';
+  sl.classList.add('on');sh();}
+function sp(k){q.value='';sc();q.blur();go(k);}
+q.oninput=sf;q.onfocus=function(){if(q.value)sf();};
+q.onkeydown=function(e){if(e.key==='Escape')sc();else if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();if(sr.length&&sl.classList.contains('on')){hl=(hl+(e.key==='ArrowDown'?1:sr.length-1))%sr.length;sh();}}else if(e.key==='Enter'&&sl.classList.contains('on')&&sr.length)sp(sr[hl]);};
+sl.onclick=function(e){var d=e.target.closest('div[data-k]');if(d)sp(+d.dataset.k);};
+document.addEventListener('click',function(e){if(!e.target.closest('.sr'))sc();});
+document.addEventListener('keydown',function(e){var t=e.target.tagName;if(t==='IFRAME'||t==='INPUT')return;if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&!e.altKey){e.preventDefault();q.focus();return;}if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
+window.addEventListener('hashchange',function(){var h=(location.hash||'').slice(1);arts.forEach(function(a,i){if(a.id===h&&i!==cur)go(i,true);});});
+draw();
+})();
+</script></body></html>
